@@ -1,6 +1,6 @@
 import Typography from '@/components/Typography';
 import { Switch } from '@/components/ui/switch';
-import { LogOut, Wifi } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { footerInfo, kafkaStatus } from '../_data/sidebar-nav';
 
 type Props = {
@@ -17,21 +17,17 @@ export default function SidebarFooter({
   return (
     <div className="border-t border-neutral-30 px-4 py-3 flex flex-col gap-3">
       {/* Kafka status */}
-      <div className="flex items-center gap-2">
-        <Wifi className="w-3.5 h-3.5 text-success-main shrink-0" />
-        <Typography as="span" variant="s" className="text-neutral-70">
-          {kafkaStatus.name} ·{' '}
-          <span className="text-success-main font-bold">
-            {kafkaStatus.status}
+      <div className="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-neutral-100 text-[11px] whitespace-nowrap">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-success-main shrink-0" />
+          <span className="font-medium text-neutral-10">
+            {kafkaStatus.name}:{' '}
+            <span className="text-neutral-40">{kafkaStatus.status}</span>
           </span>
-        </Typography>
-        <Typography
-          as="span"
-          variant="xs"
-          className="text-neutral-50 ml-auto truncate"
-        >
+        </div>
+        <span className="text-secondary-main text-[10px] font-mono">
           {kafkaStatus.clusterId}
-        </Typography>
+        </span>
       </div>
 
       {/* Notification toggle */}

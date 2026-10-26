@@ -1,13 +1,15 @@
 import StatCardsGrid from './(component)/StatCardsGrid';
+import RecentOrdersContainer from './(container)/RecentOrdersContainer';
 
 export default function MerchantDashboardPage() {
   return (
     <div className="p-6">
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
         {/* Kolom utama (kiri) */}
-        <section className="xl:col-span-8 space-y-6">
+        <div className="xl:col-span-8 space-y-6">
           <StatCardsGrid />
-        </section>
+          <RecentOrdersContainer />
+        </div>
 
         {/* Kolom samping (kanan) */}
         <aside className="xl:col-span-4 space-y-6">

@@ -19,7 +19,7 @@ export default function MerchantSidebar() {
 
   return (
     <aside
-      className="flex flex-col w-60 min-h-screen bg-white border-r border-neutral-30 shrink-0"
+      className="sticky top-0 flex flex-col w-60 h-screen bg-white border-r border-neutral-30 shrink-0 overflow-hidden"
       // Override Switch active colour for the merchant context only
       style={
         {

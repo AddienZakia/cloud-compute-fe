@@ -18,7 +18,7 @@ export default function StatCard({ data }: { data: StatCardData }) {
     data.trend?.direction === 'up' ? ArrowUpRight : ArrowDownRight;
 
   return (
-    <div className="flex flex-col justify-between p-4 rounded-xl bg-neutral-10 border border-neutral-30 shadow-xs">
+    <div className="flex flex-col justify-between p-4 rounded-xl bg-neutral-10 border border-neutral-30 shadow-xs h-full">
       <div className="flex items-center justify-between">
         <Typography
           as="span"
@@ -38,7 +38,7 @@ export default function StatCard({ data }: { data: StatCardData }) {
         </div>
       </div>
 
-      <div className="flex items-baseline gap-1.5 mt-2">
+      <div className="flex items-baseline gap-1.5 my-3">
         <Typography
           as="span"
           variant="hl"
@@ -52,7 +52,7 @@ export default function StatCard({ data }: { data: StatCardData }) {
         </Typography>
       </div>
 
-      <div className="mt-3 pt-1 border-t border-neutral-20">
+      <div className="mt-auto pt-2.5 border-t border-neutral-20 h-7 flex items-center">
         {data.trend && (
           <div className="flex items-center gap-1 text-xs">
             <span className="flex items-center font-bold text-success-main">

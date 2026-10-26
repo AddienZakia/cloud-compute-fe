@@ -1,5 +1,4 @@
 import {
-  BarChart2,
   ChefHat,
   ClipboardList,
   History,
@@ -36,8 +35,8 @@ export const navItems: NavItem[] = [
     icon: ChefHat,
   },
   {
-    id: 'antrian-pesanan',
-    label: 'Antrian Pesanan',
+    id: 'antrean-pesanan',
+    label: 'Antrean Pesanan',
     href: '/merchant/antrian',
     icon: ClipboardList,
     badge: '4 Baru',
@@ -54,26 +53,20 @@ export const navItems: NavItem[] = [
     href: '/merchant/pengaturan',
     icon: Settings,
   },
-  {
-    id: 'laporan',
-    label: 'Laporan',
-    href: '/merchant/laporan',
-    icon: BarChart2,
-  },
 ];
 
 export const storeInfo = {
   name: 'Ayam Berkah Pak Mu…',
-  branch: 'Cabang Tabel Baru',
+  branch: 'Cabang Tebet Barat',
   isOpen: true,
   openLabel: 'BUKA',
   closedLabel: 'TUTUP',
 };
 
 export const kafkaStatus = {
-  name: 'Kafhar',
+  name: 'Kafka',
   status: 'ACTIVE',
-  clusterId: 'p-id/Plus-Mac',
+  clusterId: 'p-0/offset:489',
 };
 
 export const footerInfo = {

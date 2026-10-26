@@ -88,6 +88,10 @@
   --color-merchant-primary-hover: #cf5203;
   --color-merchant-primary-surface: #fef3ec;
   --color-merchant-primary-border: #f5a87a;
+
+  --color-order-ready: #8b5cf6;
+  --color-order-ready-surface: #f5f3ff;
+  --color-order-ready-border: #ddd6fe;
 }
 
 /*  ---break---  */
