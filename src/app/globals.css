@@ -78,6 +78,18 @@
   text-wrap: balance;
 }
 
+/* ============================================
+   Merchant sidebar color tokens
+   Primary: #E85D04 (orange-red from Figma)
+   Derived: hover darken 10%, surface lighten 95%, border lighten 60%
+   ============================================ */
+@theme {
+  --color-merchant-primary: #e85d04;
+  --color-merchant-primary-hover: #cf5203;
+  --color-merchant-primary-surface: #fef3ec;
+  --color-merchant-primary-border: #f5a87a;
+}
+
 /*  ---break---  */
 
 @theme inline {
