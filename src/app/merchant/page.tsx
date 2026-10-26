@@ -1,19 +1,19 @@
-import Typography from '@/components/Typography';
+import StatCardsGrid from './(component)/StatCardsGrid';
 
 export default function MerchantDashboardPage() {
   return (
     <div className="p-6">
-      <Typography
-        as="h1"
-        variant="hl"
-        weight="bold"
-        className="text-neutral-100"
-      >
-        Dashboard
-      </Typography>
-      <Typography as="p" variant="l" className="text-neutral-60 mt-1">
-        Selamat datang di Portal Merchant.
-      </Typography>
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+        {/* Kolom utama (kiri) */}
+        <section className="xl:col-span-8 space-y-6">
+          <StatCardsGrid />
+        </section>
+
+        {/* Kolom samping (kanan) */}
+        <aside className="xl:col-span-4 space-y-6">
+          {/* Slot untuk Aksi Cepat Restoran & Menu Terlaris di tahap berikutnya */}
+        </aside>
+      </div>
     </div>
   );
 }
