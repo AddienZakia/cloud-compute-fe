@@ -1,4 +1,4 @@
-import { NunitoSans } from '@/lib/font';
+import { NunitoSans, PlusJakartaSans } from '@/lib/font';
 import type { Metadata } from 'next';
 import './globals.css';
 import Providers from './providers';
@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${NunitoSans.variable} antialiased`}>
+      <body
+        className={`${NunitoSans.variable} ${PlusJakartaSans.variable} antialiased`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
