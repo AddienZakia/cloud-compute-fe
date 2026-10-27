@@ -1,4 +1,5 @@
 import KatalogHeader from './(component)/KatalogHeader';
+import KatalogInfoGrid from './(component)/KatalogInfoGrid';
 import KatalogContentContainer from './(container)/KatalogContentContainer';
 
 export default function KatalogPage() {
@@ -6,6 +7,7 @@ export default function KatalogPage() {
     <div className="flex flex-col gap-6 p-6">
       <KatalogHeader />
       <KatalogContentContainer />
+      <KatalogInfoGrid />
     </div>
   );
 }
