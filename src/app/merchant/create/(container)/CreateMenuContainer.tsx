@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import BasicInfoSection from '../(component)/BasicInfoSection';
+import CreateMenuSidebar from '../(component)/CreateMenuSidebar';
 import PlaceholderSection from '../(component)/PlaceholderSection';
 import PricingSection from '../(component)/PricingSection';
 import VariantSection from '../(component)/VariantSection';
@@ -20,7 +21,7 @@ export default function CreateMenuContainer() {
   });
 
   const handleSubmit = (data: CreateMenuFormValues) => {
-    // Handler sementara untuk tahap 3
+    // Handler sementara — tahap 5 akan mengganti ini
     void data;
   };
 
@@ -39,19 +40,8 @@ export default function CreateMenuContainer() {
             />
           </div>
 
-          {/* Kolom Kanan: Foto & Consumer Preview */}
-          <div className="xl:col-span-4 flex flex-col gap-6">
-            <PlaceholderSection
-              title="Foto Hidangan Utama (Rasio 1:1)"
-              subtitle="Upload foto resolusi min. 800x800 px"
-              className="py-12"
-            />
-            <PlaceholderSection
-              title="Live Consumer Preview"
-              subtitle="Tampilan kartu menu di aplikasi konsumen real-time"
-              className="py-16"
-            />
-          </div>
+          {/* Kolom Kanan: Foto & Live Preview (sticky) */}
+          <CreateMenuSidebar />
         </div>
       </form>
     </FormProvider>
