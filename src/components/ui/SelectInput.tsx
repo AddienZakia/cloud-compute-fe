@@ -31,7 +31,7 @@ function SelectInput({
     formState: { errors },
   } = useFormContext();
 
-  const error = get(errors, id);
+  const error = get(errors, id) as { message?: string } | undefined;
 
   return (
     <div className="w-full">

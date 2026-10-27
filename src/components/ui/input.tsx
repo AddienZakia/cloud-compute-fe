@@ -31,7 +31,7 @@ function Input({
     watch,
   } = useFormContext();
 
-  const error = get(errors, id);
+  const error = get(errors, id) as { message?: string } | undefined;
 
   const value = watch(id) || '';
   const isError = maxChars !== undefined && value.length > maxChars;

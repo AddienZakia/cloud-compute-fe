@@ -3,7 +3,6 @@ import FooterSection from './(container)/FooterSection';
 import HeaderSection from './(container)/HeaderSection';
 import OrderHistorySection from './(container)/OrderHistorySection';
 import PageHeaderSection from './(container)/PageHeaderSection';
-import StateStoreSection from './(container)/StateStoreSection';
 
 export const metadata = {
   title: 'Riwayat Pesanan – Bungkusin',
@@ -14,7 +13,7 @@ export const metadata = {
 export default function RiwayatPage() {
   return (
     <main
-      className="min-h-screen"
+      className="min-h-screen bg-[#FFF7F5]"
       style={{
         background:
           'linear-gradient(180deg, #FFE8E5 0%, #FFF7F5 120px) no-repeat, #FFF7F5',
@@ -25,7 +24,6 @@ export default function RiwayatPage() {
       <PageHeaderSection />
       <ActiveOrderSection />
       <OrderHistorySection />
-      <StateStoreSection />
       <FooterSection />
     </main>
   );

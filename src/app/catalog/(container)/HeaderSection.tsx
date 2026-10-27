@@ -1,5 +1,5 @@
-import Navbar from '../dashboard/(components)/Navbar';
-import { navItems } from '../dashboard/(container)/data';
+import Navbar from '../../(components)/Navbar';
+import { navItems } from '../../(container)/data';
 
 export default function HeaderSection() {
   return <Navbar navItems={navItems} cartCount={3} />;

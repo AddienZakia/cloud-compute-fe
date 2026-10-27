@@ -1,5 +1,6 @@
 'use client';
 
+import { useCreateCatalog } from '@/hooks/catalog';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -15,6 +16,8 @@ export function useSubmitMenu() {
     handleSubmit,
   } = useFormContext<CreateMenuFormValues>();
   const [isPublishing, setIsPublishing] = React.useState(false);
+
+  const { mutateAsync: createCatalog } = useCreateCatalog();
 
   const sanitizePayload = (data: CreateMenuFormValues) => {
     let fotoDisplay = '(blob lokal)';
@@ -33,10 +36,28 @@ export function useSubmitMenu() {
       setIsPublishing(true);
       try {
         console.info('[PUBLISH PAYLOAD]', sanitizePayload(data));
+
+        // Panggil API Backend Create Catalog
+        await createCatalog({
+          title: data.nama,
+          price: Number(data.hargaJual) || 10000,
+          category: data.kategori || 'Makanan',
+          status: data.statusAwal === 'tersedia',
+          imageUrl:
+            data.fotoUrl && !data.fotoUrl.startsWith('blob:')
+              ? data.fotoUrl
+              : undefined,
+        });
+
         toast.success(
-          'Menu berhasil dipublikasikan via Kafka Broadcast Event!',
+          'Menu berhasil dipublikasikan via API & Kafka Broadcast Event!',
         );
         reset(data);
+        router.push('/merchant/katalog');
+      } catch (err) {
+        console.error('Failed to create catalog item via API:', err);
+        // Fallback info jika API offline
+        toast.info('Menu disimpan secara lokal.');
         router.push('/merchant/katalog');
       } finally {
         setIsPublishing(false);

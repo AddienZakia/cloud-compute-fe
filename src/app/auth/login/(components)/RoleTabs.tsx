@@ -1,4 +1,4 @@
-import { ShieldCheck, ShoppingBag, Store, Truck } from 'lucide-react';
+import { ShoppingBag, Store, Truck } from 'lucide-react';
 import { ROLES, RoleId } from '../(container)/data';
 
 interface Props {
@@ -10,12 +10,11 @@ const icons: Record<RoleId, React.ReactNode> = {
   konsumen: <ShoppingBag size={18} />,
   merchant: <Store size={18} />,
   driver: <Truck size={18} />,
-  admin: <ShieldCheck size={18} />,
 };
 
 export default function RoleTabs({ activeRole, onSelect }: Props) {
   return (
-    <div className="grid grid-cols-4 gap-1 rounded-2xl bg-[#FFF1EE] p-1">
+    <div className="grid grid-cols-3 gap-1 rounded-2xl bg-[#FFF1EE] p-1">
       {ROLES.map((role) => {
         const active = role.id === activeRole;
         return (

@@ -1,5 +1,9 @@
+'use client';
+
+import { useGetAllMerchants } from '@/hooks/merchant';
+import { useSearchParams } from 'next/navigation';
 import CartPanel, { CartTotals } from '../(components)/CartPanel';
-import { CartItem, FEES, merchant } from './data';
+import { CartItem, FEES, merchant as defaultMerchant } from './data';
 
 interface Props {
   items: CartItem[];
@@ -7,6 +11,17 @@ interface Props {
 }
 
 export default function CartSection({ items, onQtyChange }: Props) {
+  const searchParams = useSearchParams();
+  const merchantId = searchParams.get('id');
+  const { merchants } = useGetAllMerchants();
+
+  const apiMerchant = merchantId
+    ? merchants?.find((m) => m.id === merchantId) || merchants?.[0]
+    : merchants?.[0];
+
+  const storeName = apiMerchant?.title || defaultMerchant.store;
+  const deliverTo = defaultMerchant.deliverTo;
+
   const count = items.reduce((s, i) => s + i.qty, 0);
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
   const empty = items.length === 0;
@@ -30,8 +45,8 @@ export default function CartSection({ items, onQtyChange }: Props) {
     <CartPanel
       items={items}
       totals={totals}
-      store={merchant.store}
-      deliverTo={merchant.deliverTo}
+      store={storeName}
+      deliverTo={deliverTo}
       onQtyChange={onQtyChange}
     />
   );

@@ -5,6 +5,7 @@ import {
   ChartContainer,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+import { useGetMerchantStats } from '@/hooks/merchant';
 import {
   Bar,
   BarChart,
@@ -28,10 +29,17 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function SalesBarChart() {
+  const { stats } = useGetMerchantStats();
+
+  const dataToRender =
+    stats?.hourlySales && stats.hourlySales.length > 0
+      ? stats.hourlySales
+      : hourlySalesData;
+
   return (
     <ChartContainer config={chartConfig} className="h-[240px] w-full">
       <BarChart
-        data={hourlySalesData}
+        data={dataToRender}
         margin={{ top: 10, right: 10, left: -15, bottom: 0 }}
       >
         <CartesianGrid
@@ -58,16 +66,19 @@ export default function SalesBarChart() {
           radius={[3, 3, 0, 0]}
           maxBarSize={12}
         />
-        <Bar dataKey="todayVolume" radius={[3, 3, 0, 0]} maxBarSize={16}>
-          {hourlySalesData.map((entry) => (
+        <Bar
+          dataKey="todayVolume"
+          fill="var(--color-merchant-primary, #e85d04)"
+          radius={[3, 3, 0, 0]}
+          maxBarSize={12}
+        >
+          {dataToRender.map((entry, index) => (
             <Cell
-              key={entry.hour}
+              key={`cell-${index}`}
               fill={
-                entry.isPeak
+                entry.todayVolume > entry.averageVolume
                   ? 'var(--color-merchant-primary, #e85d04)'
-                  : entry.isNow
-                    ? 'var(--color-warning-main, #ca7336)'
-                    : 'var(--color-merchant-primary-border, #f5a87a)'
+                  : 'var(--color-neutral-50, #b0b0b0)'
               }
             />
           ))}

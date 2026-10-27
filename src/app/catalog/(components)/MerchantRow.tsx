@@ -1,8 +1,18 @@
+'use client';
+
+import { useGetAllMerchants } from '@/hooks/merchant';
 import { ROUTES } from '@/lib/routes';
 import { BadgeCheck, Store } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MerchantRow() {
+  const { merchants } = useGetAllMerchants();
+  const merchant = merchants?.[0];
+
+  const title = merchant?.title || 'Ayam Goreng Berkah Pak Mul - Tebet';
+  const rating = merchant?.rating || '4.8';
+  const address = merchant?.address || 'Tebet Timur';
+
   return (
     <div className="rounded-2xl bg-white p-4 shadow-sm">
       <div className="flex items-center gap-3">
@@ -12,7 +22,7 @@ export default function MerchantRow() {
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-sm font-extrabold text-slate-900">
-              Ayam Goreng Berkah Pak Mul - Tebet
+              {title}
             </span>
             <span className="flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-[10px] font-bold text-green-600">
               <BadgeCheck size={10} />
@@ -20,7 +30,7 @@ export default function MerchantRow() {
             </span>
           </div>
           <p className="text-[11px] text-slate-400 mt-0.5">
-            ★ 4.8 (1.4rb+ rating) • 1.8 km (Tebet Timur)
+            ★ {rating} • {address}
           </p>
         </div>
         <Link

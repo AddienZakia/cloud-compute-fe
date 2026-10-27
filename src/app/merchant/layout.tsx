@@ -1,3 +1,6 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import MerchantFooter from './(component)/MerchantFooter';
 import MerchantSidebar from './(container)/MerchantSidebar';
 import MerchantTopbar from './(container)/MerchantTopbar';
@@ -7,6 +10,17 @@ export default function MerchantLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
+  // Halaman detail resto dan checkout adalah tampilan storefront konsumen, bukan dashboard operasional mitra
+  const isCustomerView =
+    pathname.startsWith('/merchant/detail') ||
+    pathname.startsWith('/merchant/checkout');
+
+  if (isCustomerView) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="flex min-h-screen bg-neutral-20">
       <MerchantSidebar />

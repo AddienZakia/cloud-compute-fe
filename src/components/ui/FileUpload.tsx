@@ -26,7 +26,7 @@ function FileUpload({
     setValue,
   } = useFormContext();
 
-  const error = get(errors, id);
+  const error = get(errors, id) as { message?: string } | undefined;
 
   const [preview, setPreview] = React.useState<string | null>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);

@@ -11,6 +11,8 @@ interface Props {
   voucher: number;
   total: number;
   cartEmpty: boolean;
+  onCheckout?: () => void;
+  isSubmitting?: boolean;
 }
 
 export default function SummarySection({
@@ -23,6 +25,8 @@ export default function SummarySection({
   voucher,
   total,
   cartEmpty,
+  onCheckout,
+  isSubmitting,
 }: Props) {
   return (
     <div className="space-y-4">
@@ -35,6 +39,8 @@ export default function SummarySection({
         voucher={voucher}
         total={total}
         cartEmpty={cartEmpty}
+        onCheckout={onCheckout}
+        isSubmitting={isSubmitting}
       />
     </div>
   );

@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import CartSection from './CartSection';
 import MenuSection from './MenuSection';
-import { CartItem, MenuItem, initialCart } from './data';
+import { CartItem, MenuItem } from './data';
 
 export default function MenuCartLayout() {
-  const [cart, setCart] = useState<CartItem[]>(initialCart);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   const addItem = (m: MenuItem) => {
     if (m.soldOut) return;

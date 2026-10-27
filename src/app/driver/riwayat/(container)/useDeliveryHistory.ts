@@ -1,8 +1,12 @@
 'use client';
 
+import { useGetAllOrders } from '@/hooks/order';
 import { useMemo, useState } from 'react';
 import { deliveryHistoryData } from '../../_data/delivery-history-data';
-import type { HistoryFilterTab } from '../../_schema/history-schema';
+import type {
+  DeliveryHistoryItem,
+  HistoryFilterTab,
+} from '../../_schema/history-schema';
 
 const PAGE_SIZE = 10;
 
@@ -12,12 +16,40 @@ export function useDeliveryHistory() {
   const [selectedMonth, setSelectedMonth] = useState('2025-10');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const { orders: apiOrders } = useGetAllOrders({ take: 50, sort: 'desc' });
+
+  // Data gabungan live API orders dan data lokal
+  const sourceData: DeliveryHistoryItem[] = useMemo(() => {
+    if (apiOrders && apiOrders.length > 0) {
+      return apiOrders.map((o) => {
+        // const _isDone = o.status === 'delivered';
+        const isCancel = o.status === 'cancelled';
+
+        return {
+          id: `#ORD-${o.id.slice(0, 5).toUpperCase()}`,
+          time: new Date(o.createdAt).toLocaleTimeString('id-ID', {
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+          restaurantName: o.merchant?.title || 'Resto Mitra',
+          customerName: o.user?.name || 'Pelanggan',
+          customerLocation: o.deliveryAddress,
+          status: isCancel ? 'DIBATALKAN' : 'SELESAI',
+          rating: 5,
+          tip: 2000,
+          earning: 16000,
+          earningNote: 'Ongkir + Tip Digital',
+          monthKey: selectedMonth,
+        };
+      });
+    }
+    return deliveryHistoryData;
+  }, [apiOrders, selectedMonth]);
+
   // Data bulan terpilih sebagai basis hitungan tab dan footer
   const monthData = useMemo(() => {
-    return deliveryHistoryData.filter(
-      (item) => item.monthKey === selectedMonth,
-    );
-  }, [selectedMonth]);
+    return sourceData.filter((item) => item.monthKey === selectedMonth);
+  }, [sourceData, selectedMonth]);
 
   const allCount = monthData.length;
   const completedCount = monthData.filter((i) => i.status === 'SELESAI').length;

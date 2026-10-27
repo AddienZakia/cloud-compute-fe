@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useGetAllOrders } from '@/hooks/order';
+import { useMemo, useState } from 'react';
 import OrderHistoryItem from '../(components)/OrderHistoryItem';
 import Pagination from '../(components)/Pagination';
 import FilterSection from './FilterSection';
-import { type OrderTab, orderHistory } from './data';
+import { HistoryOrder, type OrderTab, orderHistory } from './data';
 
 const ITEMS_PER_PAGE = 4;
 
@@ -13,8 +14,50 @@ export default function OrderHistorySection() {
   const [searchValue, setSearchValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const { orders: apiOrders } = useGetAllOrders({ take: 30, sort: 'desc' });
+
+  const convertedOrders: HistoryOrder[] = useMemo(() => {
+    if (apiOrders && apiOrders.length > 0) {
+      return apiOrders.map((o) => {
+        const isCancelled = o.status === 'cancelled';
+        const total =
+          o.transaction?.grossAmount ||
+          (o.orderItems || []).reduce(
+            (acc, item) => acc + item.priceSnapshot * item.quantity,
+            0,
+          );
+
+        const summary = (o.orderItems || [])
+          .map((i) => `${i.quantity}x ${i.catalog?.title || 'Menu'}`)
+          .join(', ');
+
+        return {
+          id: `#BKS-${o.id.slice(0, 8).toUpperCase()}`,
+          status: isCancelled ? 'CANCELLED' : 'COMPLETED',
+          orderedAt: new Date(o.createdAt).toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          }),
+          merchantName: o.merchant?.title || 'Resto Mitra',
+          itemSummary: summary || 'Paket Makanan',
+          totalAmount: total,
+          paymentMethod: 'GoPay / Auto-debit',
+          imageUrl:
+            o.merchant?.imageUrl ||
+            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80',
+          cancelReason: isCancelled
+            ? 'Dibatalkan oleh sistem atau pelanggan'
+            : undefined,
+          isRefunded: isCancelled,
+        };
+      });
+    }
+    return orderHistory;
+  }, [apiOrders]);
+
   // Filter by tab
-  const tabFiltered = orderHistory.filter((order) => {
+  const tabFiltered = convertedOrders.filter((order) => {
     if (activeTab === 'semua') return true;
     if (activeTab === 'berjalan') return false; // active orders shown in ActiveOrderSection
     if (activeTab === 'selesai') return order.status === 'COMPLETED';
@@ -51,7 +94,6 @@ export default function OrderHistorySection() {
 
   return (
     <section className="mx-auto max-w-[1200px] px-6 pb-6">
-      {/* Shared filter bar (owns state, passes it down) */}
       <FilterSection
         activeTab={activeTab}
         searchValue={searchValue}
@@ -59,46 +101,25 @@ export default function OrderHistorySection() {
         onSearchChange={handleSearchChange}
       />
 
-      {/* History header row */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <h2
-          className="text-base font-bold text-slate-900"
-          style={{ fontFamily: 'var(--font-plusJakarta)' }}
-        >
-          Riwayat Pesanan Terdahulu
-        </h2>
-        <span className="text-sm text-slate-400">
-          Menampilkan {paged.length} pesanan terbaru dari {filtered.length}{' '}
-          catatan
-        </span>
-      </div>
-
-      {/* List */}
-      {paged.length === 0 ? (
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-slate-100 bg-white py-16 text-center shadow-sm">
-          <p className="text-base font-bold text-slate-400">
-            Tidak ada pesanan ditemukan
-          </p>
-          <p className="mt-1 text-sm text-slate-300">
-            Coba ubah filter atau kata kunci pencarian
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {paged.map((order) => (
+      <div className="flex flex-col gap-3">
+        {paged.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-slate-200 bg-white py-12 text-center text-sm text-slate-400">
+            Tidak ada riwayat pesanan yang cocok dengan filter.
+          </div>
+        ) : (
+          paged.map((order) => (
             <OrderHistoryItem
               key={order.id}
               order={order}
               onReorder={() => {
-                // TODO: Implement reorder functionality.
+                //
               }}
             />
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
 
-      {/* Pagination */}
-      <div className="mt-6">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
         <Pagination
           currentPage={safePage}
           totalPages={totalPages}

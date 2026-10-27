@@ -1,7 +1,7 @@
+import { Suspense } from 'react';
 import FooterSection from './(container)/FooterSection';
 import HeaderSection from './(container)/HeaderSection';
 import HeroSection from './(container)/HeroSection';
-import HygieneSection from './(container)/HygieneSection';
 import InfoSection from './(container)/InfoSection';
 import MenuCartLayout from './(container)/MenuCartLayout';
 
@@ -9,10 +9,11 @@ export default function DetailPage() {
   return (
     <main className="min-h-screen bg-[#FFF7F5]">
       <HeaderSection />
-      <HeroSection />
-      <InfoSection />
-      <MenuCartLayout />
-      <HygieneSection />
+      <Suspense fallback={<div className="h-48 animate-pulse bg-rose-50" />}>
+        <HeroSection />
+        <InfoSection />
+        <MenuCartLayout />
+      </Suspense>
       <FooterSection />
     </main>
   );

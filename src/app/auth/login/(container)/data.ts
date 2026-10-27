@@ -1,4 +1,4 @@
-export type RoleId = 'konsumen' | 'merchant' | 'driver' | 'admin';
+export type RoleId = 'konsumen' | 'merchant' | 'driver';
 
 export interface Role {
   id: RoleId;
@@ -15,25 +15,25 @@ export interface Role {
 export const ROLES: Role[] = [
   {
     id: 'konsumen',
-    label: 'Konsumen',
-    sublabel: 'Pelanggan',
-    pill: 'KONSUMEN',
+    label: 'Pengguna',
+    sublabel: 'User / Pelanggan',
+    pill: 'PENGGUNA',
     infoStrip:
-      'Pesan makanan lezat dari restoran pilihan & lacak pengantaran live.',
-    demoEmail: 'user@bungkusin.id',
-    demoPassword: 'bungkusin123',
+      'Masuk sebagai pelanggan untuk memesan kuliner & kelola pesanan.',
+    demoEmail: 'user@ets.com',
+    demoPassword: 'testing123',
     redirect: '/catalog/dashboard',
     dotColor: '#D91E18',
   },
   {
     id: 'merchant',
-    label: 'Merchant',
-    sublabel: 'Dapur Resto',
+    label: 'Mitra Resto',
+    sublabel: 'Dapur Merchant',
     pill: 'MERCHANT',
     infoStrip:
-      'Kelola menu, stok, dan pesanan masuk dapur resto Anda secara real-time.',
-    demoEmail: 'resto@bungkusin.id',
-    demoPassword: 'bungkusin123',
+      'Masuk sebagai mitra resto untuk mengelola katalog menu & pesanan.',
+    demoEmail: 'merchant@ets.com',
+    demoPassword: 'testing123',
     redirect: '/merchant',
     dotColor: '#F97316',
   },
@@ -43,26 +43,14 @@ export const ROLES: Role[] = [
     sublabel: 'Armada Kurir',
     pill: 'DRIVER',
     infoStrip:
-      'Terima orderan terdekat dan pantau rute pengantaran armada kurir.',
-    demoEmail: 'driver@bungkusin.id',
-    demoPassword: 'bungkusin123',
+      'Masuk sebagai driver kurir untuk menerima dan mengantar pesanan.',
+    demoEmail: 'driver@ets.com',
+    demoPassword: 'testing123',
     redirect: '/driver',
     dotColor: '#65a30d',
-  },
-  {
-    id: 'admin',
-    label: 'Admin',
-    sublabel: 'Sistem Pusat',
-    pill: 'ADMIN',
-    infoStrip:
-      'Pantau seluruh ekosistem, mitra, dan aliran event sistem pusat.',
-    demoEmail: 'admin@bungkusin.id',
-    demoPassword: 'bungkusin123',
-    redirect: '/admin',
-    dotColor: '#334155',
   },
 ];
 
 export function getRoleById(id: RoleId): Role {
-  return ROLES.find((r) => r.id === id)!;
+  return ROLES.find((r) => r.id === id) || ROLES[0];
 }

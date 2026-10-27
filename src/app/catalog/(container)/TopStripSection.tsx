@@ -31,10 +31,6 @@ export default function TopStripSection({ menu }: Props) {
             Tebet dalam 1 jam terakhir.
           </p>
         </div>
-        <span className="flex items-center gap-1.5 self-start sm:self-auto shrink-0 rounded-full bg-slate-800 px-3 py-1.5 text-[10px] font-semibold text-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-          Kafka Stream: order-events-jkt.tebet.partition-04
-        </span>
       </div>
     </div>
   );

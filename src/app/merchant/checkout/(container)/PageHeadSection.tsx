@@ -21,10 +21,6 @@ export default function PageHeadSection({ itemCount }: Props) {
           <ChevronRight size={11} />
           <span className="font-bold text-slate-800">Keranjang Belanja</span>
         </nav>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1 text-[10px] font-medium text-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-          STREAM: cart-partition-04 [sync: 14:38:09 WIB]
-        </span>
       </div>
 
       <div className="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">

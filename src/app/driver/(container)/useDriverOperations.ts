@@ -1,5 +1,6 @@
 'use client';
 
+import { useUpdateOrderStatus } from '@/hooks/order';
 import { type Dispatch, type SetStateAction, useCallback } from 'react';
 import { offerToDelivery } from '../_lib/offer-to-delivery';
 import type { DriverDashboardData } from '../_schema/driver-schema';
@@ -7,8 +8,15 @@ import type { DriverDashboardData } from '../_schema/driver-schema';
 export function useDriverOperations(
   setData: Dispatch<SetStateAction<DriverDashboardData>>,
 ) {
+  const { mutate: updateStatus } = useUpdateOrderStatus('');
+
   const arriveAtRestaurant = useCallback(
     (orderId: string) => {
+      // Panggil backend API jika ID merupakan UUID order
+      if (orderId && orderId.length > 10) {
+        updateStatus({ status: 'picked' });
+      }
+
       setData((prev) => ({
         ...prev,
         activeDeliveries: prev.activeDeliveries.map((item) =>
@@ -16,7 +24,7 @@ export function useDriverOperations(
         ),
       }));
     },
-    [setData],
+    [setData, updateStatus],
   );
 
   const acceptOffer = useCallback(

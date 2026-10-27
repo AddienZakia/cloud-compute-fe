@@ -1,7 +1,7 @@
 'use client';
 
-import Navbar from '../../dashboard/(components)/Navbar';
-import { navItems } from '../../dashboard/(container)/data';
+import Navbar from '../../../(components)/Navbar';
+import { navItems } from '../../../(container)/data';
 
 // Riwayat page doesn't have a CartProvider, so we default cart to 0.
 // Swap cartCount for a real context value if you add one later.

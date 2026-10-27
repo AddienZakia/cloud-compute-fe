@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { DriverArmadaCard } from './DriverArmadaCard';
-import { DriverHotlineCard } from './DriverHotlineCard';
 import { DriverSidebarNav } from './DriverSidebarNav';
 
 export function DriverSidebar() {
@@ -30,7 +29,6 @@ export function DriverSidebar() {
         <DriverArmadaCard />
       </div>
       <DriverSidebarNav />
-      <DriverHotlineCard />
     </aside>
   );
 }

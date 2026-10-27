@@ -2,10 +2,12 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-export const getToken = (): string => cookies.get('hiring-app');
+export const COOKIE_NAME = 'token';
+
+export const getToken = (): string => cookies.get(COOKIE_NAME);
 
 export const setToken = (token: string) => {
-  cookies.set('hiring-app', token, { path: '/' });
+  cookies.set(COOKIE_NAME, token, { path: '/' });
 };
 
-export const removeToken = () => cookies.remove('hiring-app', { path: '/' });
+export const removeToken = () => cookies.remove(COOKIE_NAME, { path: '/' });

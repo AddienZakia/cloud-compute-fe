@@ -24,7 +24,7 @@ function Textarea({
     formState: { errors },
   } = useFormContext();
 
-  const error = get(errors, id);
+  const error = get(errors, id) as { message?: string } | undefined;
   const isError = maxChars !== undefined && character.length > maxChars;
 
   return (

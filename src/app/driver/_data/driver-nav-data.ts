@@ -1,10 +1,4 @@
-import {
-  Bike,
-  History,
-  LayoutDashboard,
-  ShoppingBag,
-  User,
-} from 'lucide-react';
+import { Bike, History, LayoutDashboard } from 'lucide-react';
 import type { ElementType } from 'react';
 
 export type DriverNavItem = {
@@ -23,15 +17,8 @@ export const driverNavItems: DriverNavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    id: 'pesanan-tersedia',
-    label: 'Pesanan Tersedia',
-    href: '/driver/tersedia',
-    icon: ShoppingBag,
-    badge: '5',
-  },
-  {
     id: 'pesanan-aktif',
-    label: 'Pesanan Saya / Aktif',
+    label: 'Pesanan Aktif',
     href: '/driver/aktif',
     icon: Bike,
   },
@@ -40,11 +27,5 @@ export const driverNavItems: DriverNavItem[] = [
     label: 'Riwayat Pengantaran',
     href: '/driver/riwayat',
     icon: History,
-  },
-  {
-    id: 'profil-driver',
-    label: 'Profil Driver',
-    href: '/driver/profil',
-    icon: User,
   },
 ];

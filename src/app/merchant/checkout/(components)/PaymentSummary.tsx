@@ -11,6 +11,8 @@ interface Props {
   voucher: number;
   total: number;
   cartEmpty: boolean;
+  onCheckout?: () => void;
+  isSubmitting?: boolean;
 }
 
 function Row({
@@ -43,6 +45,8 @@ export default function PaymentSummary({
   voucher,
   total,
   cartEmpty,
+  onCheckout,
+  isSubmitting,
 }: Props) {
   return (
     <div className="rounded-2xl border border-rose-100 bg-white p-5 shadow-sm">
@@ -87,10 +91,13 @@ export default function PaymentSummary({
       <div className="mt-4 space-y-2.5">
         <button
           type="button"
-          disabled={cartEmpty}
+          disabled={cartEmpty || isSubmitting}
+          onClick={onCheckout}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#D91E18] py-3.5 text-sm font-bold text-white shadow-md shadow-red-200 transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
         >
-          Lanjutkan ke Pembayaran (Checkout)
+          {isSubmitting
+            ? 'Memproses Pesanan...'
+            : 'Lanjutkan ke Pembayaran (Checkout)'}
           <ChevronRight size={16} />
         </button>
         <Link
@@ -105,7 +112,8 @@ export default function PaymentSummary({
         <Lock size={12} className="mt-0.5 shrink-0 text-[#D91E18]" />
         <p>
           Pembayaran diamankan secara enkripsi. Order langsung didispatch ke
-          sistem dapur <strong>Pak Mul</strong> setelah konfirmasi.
+          sistem dapur <strong>Pak Mul</strong> via Kafka Event Stream setelah
+          konfirmasi.
         </p>
       </div>
     </div>

@@ -11,17 +11,13 @@ export default function Footer() {
             Bungkusin
           </span>
           <span className="text-sm font-semibold text-slate-400">
-            Logistics
-          </span>
-          <div className="h-4 w-px bg-slate-200" />
-          <span className="text-xs text-slate-400">
-            Real-Time Event-Driven Architecture (Apache Kafka Cluster OP-ID)
+            Food Delivery
           </span>
         </div>
 
         {/* Right */}
         <p className="text-xs text-slate-400">
-          © 2025 Bungkusin Food Delivery, Jakarta, Indonesia.
+          © 2026 Bungkusin Food Delivery. All rights reserved.
         </p>
       </div>
     </footer>

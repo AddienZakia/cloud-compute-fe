@@ -1,4 +1,4 @@
-import Footer from '@/app/catalog/dashboard/(components)/Footer';
+import Footer from '@/app/(components)/Footer';
 
 export default function FooterSection() {
   return <Footer />;

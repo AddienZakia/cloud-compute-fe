@@ -8,14 +8,12 @@ const dotColors: Record<RoleId, string> = {
   konsumen: 'bg-red-500',
   merchant: 'bg-orange-500',
   driver: 'bg-lime-600',
-  admin: 'bg-slate-700',
 };
 
 const simLabels: Record<RoleId, string> = {
   konsumen: 'User Fast',
   merchant: 'Resto Fast',
   driver: 'Driver Fast',
-  admin: 'Admin Fast',
 };
 
 export default function QuickSimButtons({ onSimulate }: Props) {
