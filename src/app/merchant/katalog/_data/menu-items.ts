@@ -15,6 +15,7 @@ export type MenuItem = {
   badge?: string;
   sisaPorsi: number | null;
   foto: string;
+  jamHabis?: string;
 };
 
 /**
@@ -96,6 +97,7 @@ export const menuItems: MenuItem[] = [
     badge: 'HABIS',
     sisaPorsi: 0,
     foto: '/images/menu/sayur-asem.svg',
+    jamHabis: 'pkl 13:40',
   },
   {
     id: 'menu-06',
@@ -211,6 +213,7 @@ export const menuItems: MenuItem[] = [
     badge: 'HABIS',
     sisaPorsi: 0,
     foto: '/images/menu/placeholder.svg',
+    jamHabis: 'pkl 13:40',
   },
   {
     id: 'menu-14',

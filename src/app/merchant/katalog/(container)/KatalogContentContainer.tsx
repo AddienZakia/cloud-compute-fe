@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { toast } from 'sonner';
+import KatalogSummaryGrid from '../(component)/KatalogSummaryGrid';
 import KatalogTable from '../(component)/KatalogTable';
+import KatalogTableFooter from '../(component)/KatalogTableFooter';
 import KatalogToolbar from '../(component)/KatalogToolbar';
-import { useMenuFilter } from './useMenuFilter';
+import { useMenuCatalog } from './useMenuCatalog';
 
 export default function KatalogContentContainer() {
   const {
+    menus,
     search,
     setSearch,
     status,
@@ -16,52 +17,30 @@ export default function KatalogContentContainer() {
     setCategory,
     categoryCounts,
     statusCounts,
-    filteredMenus,
-  } = useMenuFilter();
+    paginatedMenus,
+    selectedIds,
+    isAllPageSelected,
+    isSomePageSelected,
+    toggleSelect,
+    toggleSelectAllPage,
+    toggleAvailability,
+    currentPage,
+    setCurrentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    totalItems,
+  } = useMenuCatalog();
 
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [items, setItems] = useState(filteredMenus);
-
-  // Perbarui items jika filteredMenus berubah
-  const displayedItems = filteredMenus.map((fm) => {
-    const override = items.find((it) => it.id === fm.id);
-    return override ? { ...fm, status: override.status } : fm;
-  });
-
-  const handleToggleSelect = (id: string) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-    );
-  };
-
-  const handleToggleAll = () => {
-    const allIds = displayedItems.map((m) => m.id);
-    const isAll =
-      allIds.length > 0 && allIds.every((id) => selectedIds.includes(id));
-    setSelectedIds(isAll ? [] : allIds);
-  };
-
-  const handleToggleAvailability = (
-    id: string,
-    newStatus: 'tersedia' | 'habis',
-  ) => {
-    setItems((prev) => {
-      const exists = prev.some((it) => it.id === id);
-      if (exists) {
-        return prev.map((it) =>
-          it.id === id ? { ...it, status: newStatus } : it,
-        );
-      }
-      return [
-        ...prev,
-        { ...filteredMenus.find((m) => m.id === id)!, status: newStatus },
-      ];
-    });
-    toast.success(`Status menu berhasil diubah menjadi ${newStatus}`);
-  };
+  const totalAktif = menus.filter((m) => m.status === 'tersedia').length;
+  const totalHabis = menus.filter((m) => m.status === 'habis').length;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
+      {/* 4 Kartu Ringkasan Atas — reaktif terhadap perubahan data menu */}
+      <KatalogSummaryGrid items={menus} />
+
+      {/* Toolbar Filter */}
       <KatalogToolbar
         search={search}
         onSearchChange={setSearch}
@@ -73,13 +52,32 @@ export default function KatalogContentContainer() {
         categoryCounts={categoryCounts}
       />
 
-      <KatalogTable
-        items={displayedItems}
-        selectedIds={selectedIds}
-        onToggleSelect={handleToggleSelect}
-        onToggleAll={handleToggleAll}
-        onToggleAvailability={handleToggleAvailability}
-      />
+      {/* Tabel Menu (6 menu per halaman) */}
+      <div className="flex flex-col gap-3">
+        <KatalogTable
+          items={paginatedMenus}
+          selectedIds={selectedIds}
+          isAllSelected={isAllPageSelected}
+          isSomeSelected={isSomePageSelected}
+          onToggleSelect={toggleSelect}
+          onToggleAll={toggleSelectAllPage}
+          onToggleAvailability={toggleAvailability}
+        />
+
+        {/* Footer Tabel: Status Sinkronisasi Kafka + Pagination */}
+        <KatalogTableFooter
+          totalAktif={totalAktif}
+          totalHabis={totalHabis}
+          pagination={{
+            currentPage,
+            totalPages,
+            onPageChange: setCurrentPage,
+            startIndex,
+            endIndex,
+            totalItems,
+          }}
+        />
+      </div>
     </div>
   );
 }

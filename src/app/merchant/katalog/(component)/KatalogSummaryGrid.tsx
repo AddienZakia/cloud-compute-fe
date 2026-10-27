@@ -1,12 +1,18 @@
 import { AlertTriangle, CheckCircle2, ClipboardList } from 'lucide-react';
-import { menuItems } from '../_data/menu-items';
+import { MenuItem, menuItems } from '../_data/menu-items';
 import KatalogStreamCard from './KatalogStreamCard';
 import KatalogSummaryCard from './KatalogSummaryCard';
 
-export default function KatalogSummaryGrid() {
-  const total = menuItems.length;
-  const aktif = menuItems.filter((m) => m.status === 'tersedia').length;
-  const habis = menuItems.filter((m) => m.status === 'habis').length;
+export type KatalogSummaryGridProps = {
+  items?: MenuItem[];
+};
+
+export default function KatalogSummaryGrid({
+  items = menuItems,
+}: KatalogSummaryGridProps) {
+  const total = items.length;
+  const aktif = items.filter((m) => m.status === 'tersedia').length;
+  const habis = items.filter((m) => m.status === 'habis').length;
 
   return (
     <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">

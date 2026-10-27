@@ -11,33 +11,31 @@ export const CATEGORIES = [
   'Minuman Segar',
 ] as const;
 
-export function useMenuFilter() {
+export function useMenuFilter(menus: MenuItem[] = menuItems) {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState<string>('all');
   const [category, setCategory] = useState<string>('Semua Kategori');
 
-  // Jumlah dihitung dari seluruh menuItems, bukan filteredMenus
+  // Jumlah dihitung dari seluruh data menu, bukan hasil filter
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {
-      'Semua Kategori': menuItems.length,
-    };
+    const counts: Record<string, number> = { 'Semua Kategori': menus.length };
     for (const cat of CATEGORIES.slice(1)) {
-      counts[cat] = menuItems.filter((item) => item.kategori === cat).length;
+      counts[cat] = menus.filter((item) => item.kategori === cat).length;
     }
     return counts;
-  }, []);
+  }, [menus]);
 
   const statusCounts = useMemo(
     () => ({
-      all: menuItems.length,
-      tersedia: menuItems.filter((m) => m.status === 'tersedia').length,
-      habis: menuItems.filter((m) => m.status === 'habis').length,
+      all: menus.length,
+      tersedia: menus.filter((m) => m.status === 'tersedia').length,
+      habis: menus.filter((m) => m.status === 'habis').length,
     }),
-    [],
+    [menus],
   );
 
   const filteredMenus: MenuItem[] = useMemo(() => {
-    return menuItems.filter((item) => {
+    return menus.filter((item) => {
       const matchSearch =
         search.trim() === '' ||
         item.nama.toLowerCase().includes(search.toLowerCase()) ||
@@ -50,7 +48,7 @@ export function useMenuFilter() {
 
       return matchSearch && matchStatus && matchCategory;
     });
-  }, [search, status, category]);
+  }, [menus, search, status, category]);
 
   return {
     search,

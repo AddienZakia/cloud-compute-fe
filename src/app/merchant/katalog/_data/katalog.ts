@@ -12,9 +12,11 @@ export const katalogHeader = {
   buttonTambahMenu: 'Tambahkan Menu Baru',
 } as const;
 
+export const KAFKA_OFFSET = '#394,821';
+
 export const katalogStreamInfo = {
   label: 'STREAM:',
   status: 'Active',
-  offset: '#394,821',
+  offset: KAFKA_OFFSET,
   syncLabel: 'Sync otomatis 12ms WIB',
 } as const;

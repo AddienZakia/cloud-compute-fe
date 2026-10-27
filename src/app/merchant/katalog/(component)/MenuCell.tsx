@@ -59,7 +59,7 @@ export default function MenuCell({ item }: MenuCellProps) {
           <span>•</span>
           {isHabis ? (
             <span className="text-danger-main font-semibold">
-              Dapur habis pkl 13:40
+              Dapur habis {item.jamHabis ?? 'pkl 13:40'}
             </span>
           ) : (
             <span>Porsi Satuan</span>

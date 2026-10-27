@@ -13,6 +13,8 @@ import MenuRow from './MenuRow';
 export type KatalogTableProps = {
   items: MenuItem[];
   selectedIds: string[];
+  isAllSelected?: boolean;
+  isSomeSelected?: boolean;
   onToggleSelect: (id: string) => void;
   onToggleAll: () => void;
   onToggleAvailability: (id: string, newStatus: 'tersedia' | 'habis') => void;
@@ -21,12 +23,27 @@ export type KatalogTableProps = {
 export default function KatalogTable({
   items,
   selectedIds,
+  isAllSelected,
+  isSomeSelected,
   onToggleSelect,
   onToggleAll,
   onToggleAvailability,
 }: KatalogTableProps) {
-  const isAllSelected =
-    items.length > 0 && items.every((i) => selectedIds.includes(i.id));
+  const allChecked =
+    isAllSelected !== undefined
+      ? isAllSelected
+      : items.length > 0 && items.every((i) => selectedIds.includes(i.id));
+
+  const someChecked =
+    isSomeSelected !== undefined
+      ? isSomeSelected
+      : items.some((i) => selectedIds.includes(i.id)) && !allChecked;
+
+  const checkboxState = allChecked
+    ? true
+    : someChecked
+      ? 'indeterminate'
+      : false;
 
   return (
     <div className="w-full overflow-hidden rounded-xl border border-neutral-30 bg-neutral-10 shadow-xs">
@@ -36,9 +53,10 @@ export default function KatalogTable({
             <TableRow className="border-b border-neutral-30 hover:bg-transparent">
               <TableHead className="w-10 pl-4 pr-0">
                 <Checkbox
-                  checked={isAllSelected}
+                  checked={checkboxState}
                   onCheckedChange={onToggleAll}
-                  aria-label="Pilih semua menu di tabel"
+                  aria-label="Pilih semua menu di halaman ini"
+                  className="data-[state=indeterminate]:bg-merchant-primary data-[state=indeterminate]:border-merchant-primary data-[state=checked]:bg-merchant-primary data-[state=checked]:border-merchant-primary"
                 />
               </TableHead>
               <TableHead className="text-xs font-bold tracking-wider text-neutral-60 py-3.5 pr-4">
