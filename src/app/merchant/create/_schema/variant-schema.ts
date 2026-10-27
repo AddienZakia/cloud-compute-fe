@@ -3,7 +3,8 @@ import { z } from 'zod';
 export const varianOptionSchema = z.object({
   id: z.string(),
   nama: z.string().min(1, 'Nama opsi wajib diisi'),
-  hargaEkstra: z.number().min(0, 'Harga ekstra tidak boleh negatif'),
+  hargaEkstra: z.number().min(0, 'Tambahan harga tidak boleh negatif'),
+  deskripsi: z.string().optional(),
 });
 
 export const varianGroupSchema = z.object({

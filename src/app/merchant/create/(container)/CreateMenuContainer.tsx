@@ -5,6 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import BasicInfoSection from '../(component)/BasicInfoSection';
 import PlaceholderSection from '../(component)/PlaceholderSection';
 import PricingSection from '../(component)/PricingSection';
+import VariantSection from '../(component)/VariantSection';
 import { defaultMenuFormValues } from '../_schema/default-values';
 import {
   CreateMenuFormValues,
@@ -19,7 +20,7 @@ export default function CreateMenuContainer() {
   });
 
   const handleSubmit = (data: CreateMenuFormValues) => {
-    // Handler sementara untuk tahap 2
+    // Handler sementara untuk tahap 3
     void data;
   };
 
@@ -31,10 +32,7 @@ export default function CreateMenuContainer() {
           <div className="xl:col-span-8 flex flex-col gap-6">
             <BasicInfoSection />
             <PricingSection />
-            <PlaceholderSection
-              title="3. Pengaturan Varian & Opsi Konsumen"
-              className="py-10"
-            />
+            <VariantSection />
             <PlaceholderSection
               title="Bar Aksi Bawah: Simpan & Publikasi Kafka"
               className="py-5"

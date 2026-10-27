@@ -43,9 +43,15 @@ export const defaultMenuFormValues: CreateMenuFormValues = {
         {
           id: 'opt-7',
           nama: 'Ekstra Kremes Renyah Toples Mini',
+          deskripsi: 'Gurih harum daun jeruk',
           hargaEkstra: 4000,
         },
-        { id: 'opt-8', nama: 'Ganti Nasi Uduk Gurih Pulen', hargaEkstra: 6000 },
+        {
+          id: 'opt-8',
+          nama: 'Ganti Nasi Uduk Gurih Pulen',
+          deskripsi: 'Santan kelapa & serai wangi',
+          hargaEkstra: 6000,
+        },
       ],
     },
   ],
