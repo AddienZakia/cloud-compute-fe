@@ -3,8 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import BasicInfoSection from '../(component)/BasicInfoSection';
+import CreateActionBar from '../(component)/CreateActionBar';
 import CreateMenuSidebar from '../(component)/CreateMenuSidebar';
-import PlaceholderSection from '../(component)/PlaceholderSection';
 import PricingSection from '../(component)/PricingSection';
 import VariantSection from '../(component)/VariantSection';
 import { defaultMenuFormValues } from '../_schema/default-values';
@@ -34,14 +34,13 @@ export default function CreateMenuContainer() {
             <BasicInfoSection />
             <PricingSection />
             <VariantSection />
-            <PlaceholderSection
-              title="Bar Aksi Bawah: Simpan & Publikasi Kafka"
-              className="py-5"
-            />
           </div>
 
           {/* Kolom Kanan: Foto & Live Preview (sticky) */}
           <CreateMenuSidebar />
+        </div>
+        <div className="mt-6">
+          <CreateActionBar />
         </div>
       </form>
     </FormProvider>

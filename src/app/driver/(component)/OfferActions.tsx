@@ -7,11 +7,16 @@ import { useDriverContext } from '../(container)/DriverContext';
 interface OfferActionsProps {
   offerId: string;
   orderNumber: string;
+  isExpired: boolean;
 }
 
-export function OfferActions({ offerId, orderNumber }: OfferActionsProps) {
+export function OfferActions({
+  offerId,
+  orderNumber,
+  isExpired,
+}: OfferActionsProps) {
   const { isOnline, isOpen, acceptOffer, dismissOffer } = useDriverContext();
-  const canAccept = isOnline && isOpen;
+  const canAccept = isOnline && isOpen && !isExpired;
 
   const handleAccept = () => {
     if (!canAccept) return;
@@ -36,7 +41,9 @@ export function OfferActions({ offerId, orderNumber }: OfferActionsProps) {
     <div className="mt-4 flex flex-col gap-2">
       {!canAccept && (
         <p className="text-[11px] font-medium text-driver-primary">
-          Aktifkan status ONLINE & OPEN untuk menerima order.
+          {isExpired
+            ? 'Tawaran kedaluwarsa. Abaikan untuk menghapusnya.'
+            : 'Aktifkan status ONLINE & OPEN untuk menerima order.'}
         </p>
       )}
 

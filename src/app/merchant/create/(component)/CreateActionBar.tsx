@@ -35,7 +35,7 @@ export default function CreateActionBar() {
           <button
             type="button"
             onClick={handleCancelClick}
-            className="flex items-center gap-2 text-sm font-semibold text-neutral-70 hover:text-neutral-100 transition-colors cursor-pointer self-start lg:self-auto"
+            className="flex items-center gap-2 rounded-xl bg-[#f5ecea] px-4 py-3 text-sm font-semibold text-neutral-80 transition-colors hover:bg-[#eadfdd] cursor-pointer self-start lg:self-auto"
           >
             <ArrowLeft className="size-4" />
             <span>{actionBarText.cancelBtn}</span>

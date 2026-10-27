@@ -8,9 +8,9 @@ import { OfferCard } from './OfferCard';
 import { SurgeNotice } from './SurgeNotice';
 
 export function OfferSection() {
-  const { data, expireOffer } = useDriverContext();
+  const { data } = useDriverContext();
   const offers = data.newOffers;
-  const remainingSeconds = useOfferTicker(offers, expireOffer);
+  const remainingSeconds = useOfferTicker(offers);
 
   return (
     <div className="space-y-4">

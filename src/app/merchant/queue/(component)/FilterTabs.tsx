@@ -45,7 +45,7 @@ export default function FilterTabs() {
     <div
       role="group"
       aria-label="Filter status antrean pesanan"
-      className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"
+      className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none"
     >
       {TABS.map((tab) => {
         const isActive = activeTab === tab.id;

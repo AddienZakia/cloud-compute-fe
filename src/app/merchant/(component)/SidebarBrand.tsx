@@ -2,8 +2,8 @@ import Typography from '@/components/Typography';
 
 export default function SidebarBrand() {
   return (
-    <div className="flex items-center gap-2 px-4 py-4 border-b border-neutral-30">
-      <div className="flex items-center justify-center w-8 h-8 rounded-md bg-merchant-primary shrink-0">
+    <div className="flex items-center gap-2 border-b border-[#f0e5e3] bg-[#fff8f6] px-4 py-3">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#b50303]">
         <Typography as="span" variant="hs" weight="bold" className="text-white">
           B
         </Typography>
@@ -14,15 +14,15 @@ export default function SidebarBrand() {
             as="span"
             variant="m"
             weight="bold"
-            className="text-neutral-100"
+            className="text-[#b50303]"
           >
             Bungkusin
           </Typography>
-          <span className="text-[9px] font-bold text-merchant-primary border border-merchant-primary rounded px-1 py-0.5 leading-none">
+          <span className="rounded-full bg-[#f7e0d8] px-1.5 py-0.5 text-[9px] leading-none font-bold text-[#754638]">
             RESTO
           </span>
         </div>
-        <Typography as="span" variant="s" className="text-neutral-60">
+        <Typography as="span" variant="xs" className="text-[#754638]">
           PORTAL MERCHANT
         </Typography>
       </div>

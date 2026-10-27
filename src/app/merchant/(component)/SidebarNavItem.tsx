@@ -13,30 +13,27 @@ export default function SidebarNavItem({ item, isActive }: Props) {
   return (
     <Link
       href={item.href}
+      aria-current={isActive ? 'page' : undefined}
       className={cn(
-        'flex items-center gap-3 px-4 py-2.5 rounded-lg mx-2 transition-colors duration-150 group',
+        'group mx-2 flex items-center gap-3 rounded-lg px-3 py-2 transition-colors duration-150',
         isActive
-          ? 'bg-merchant-primary text-white'
-          : 'text-neutral-70 hover:bg-merchant-primary-surface hover:text-merchant-primary',
+          ? 'bg-[#e3261c] font-bold text-white shadow-sm'
+          : 'text-[#754638] hover:bg-[#f7e0d8] hover:text-[#b50303]',
       )}
     >
       <Icon
         className={cn(
-          'w-4 h-4 shrink-0',
-          isActive
-            ? 'text-white'
-            : 'text-neutral-60 group-hover:text-merchant-primary',
+          'h-3.5 w-3.5 shrink-0',
+          isActive ? 'text-white' : 'text-[#754638] group-hover:text-[#b50303]',
         )}
       />
       <Typography
         as="span"
-        variant="m"
+        variant="s"
         weight={isActive ? 'bold' : 'regular'}
         className={cn(
           'flex-1',
-          isActive
-            ? 'text-white'
-            : 'text-neutral-80 group-hover:text-merchant-primary',
+          isActive ? 'text-white' : 'text-[#754638] group-hover:text-[#b50303]',
         )}
       >
         {item.label}
@@ -45,9 +42,7 @@ export default function SidebarNavItem({ item, isActive }: Props) {
         <span
           className={cn(
             'text-[10px] font-bold px-1.5 py-0.5 rounded-full',
-            isActive
-              ? 'bg-white text-merchant-primary'
-              : 'bg-merchant-primary text-white',
+            isActive ? 'bg-white text-[#b50303]' : 'bg-[#b50303] text-white',
           )}
         >
           {item.badge}

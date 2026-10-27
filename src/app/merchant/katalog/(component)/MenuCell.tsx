@@ -25,9 +25,6 @@ export default function MenuCell({ item }: MenuCellProps) {
             isHabis && 'grayscale opacity-60',
           )}
         />
-        <span className="absolute bottom-0 inset-x-0 bg-neutral-100/70 text-neutral-10 text-[8px] text-center font-bold py-0.5 leading-none">
-          Foto HD
-        </span>
       </div>
 
       {/* Info Menu */}

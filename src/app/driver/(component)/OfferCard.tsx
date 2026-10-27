@@ -51,7 +51,11 @@ export function OfferCard({ offer, remainingSeconds }: OfferCardProps) {
         </div>
       </div>
 
-      <OfferActions offerId={offer.id} orderNumber={offer.orderNumber} />
+      <OfferActions
+        offerId={offer.id}
+        orderNumber={offer.orderNumber}
+        isExpired={remainingSeconds <= 0}
+      />
     </div>
   );
 }

@@ -56,7 +56,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const storeInfo = {
-  name: 'Ayam Berkah Pak Mu…',
+  name: 'Ayam Berkah Pak Mul',
   branch: 'Cabang Tebet Barat',
   isOpen: true,
   openLabel: 'BUKA',

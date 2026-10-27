@@ -54,20 +54,9 @@ export function useDriverOperations(
     [setData],
   );
 
-  const expireOffer = useCallback(
-    (offerId: string) => {
-      setData((prev) => ({
-        ...prev,
-        newOffers: prev.newOffers.filter((o) => o.id !== offerId),
-      }));
-    },
-    [setData],
-  );
-
   return {
     arriveAtRestaurant,
     acceptOffer,
     dismissOffer,
-    expireOffer,
   };
 }

@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import * as React from 'react';
 
 const iconVariants = {
-  neutral: 'bg-neutral-30 text-neutral-80',
+  neutral: 'bg-warning-surface text-warning-main border border-warning-border',
   success: 'bg-success-surface text-success-main border border-success-border',
   danger: 'bg-danger-surface text-danger-main border border-danger-border',
 } as const;
@@ -57,9 +57,11 @@ export default function KatalogSummaryCard({
           as="span"
           variant="hl"
           weight="bold"
-          className={
-            variant === 'danger' ? 'text-danger-main' : 'text-neutral-100'
-          }
+          className={cn(
+            variant === 'success' && 'text-success-main',
+            variant === 'danger' && 'text-danger-main',
+            variant === 'neutral' && 'text-neutral-100',
+          )}
         >
           {value}
         </Typography>

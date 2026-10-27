@@ -20,7 +20,7 @@ export default function ActionBarButtons({
         type="button"
         onClick={onDraft}
         disabled={isPublishing}
-        className="px-4 py-2.5 rounded-xl border border-neutral-30 text-sm font-semibold text-neutral-80 hover:bg-neutral-20 disabled:opacity-50 transition-colors cursor-pointer"
+        className="rounded-xl border border-[#f0e5e3] bg-[#fff8f6] px-4 py-2.5 text-sm font-semibold text-neutral-80 transition-colors hover:bg-[#f5ecea] disabled:opacity-50 cursor-pointer"
       >
         {actionBarText.draftBtn}
       </button>

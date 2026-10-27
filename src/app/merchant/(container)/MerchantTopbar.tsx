@@ -10,7 +10,7 @@ export default function MerchantTopbar() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-neutral-30 bg-neutral-10 px-6">
+    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-[#f0e5e3] bg-[#fff8f6] px-6 font-nunitoSans">
       <TopbarBreadcrumb items={staticBreadcrumbs} />
       <TopbarKafkaStatus
         label={topbarData.kafka.label}

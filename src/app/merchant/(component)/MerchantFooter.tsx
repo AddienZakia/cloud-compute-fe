@@ -2,7 +2,7 @@ import Typography from '@/components/Typography';
 
 export default function MerchantFooter() {
   return (
-    <footer className="w-full border-t border-neutral-30 bg-neutral-10/40 px-6 py-3.5 mt-auto">
+    <footer className="mt-auto w-full border-t border-[#f0e5e3] bg-[#fff8f6] px-6 py-3.5 font-nunitoSans">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         {/* Sisi Kiri: Hak Cipta & Ekosistem */}
         <Typography

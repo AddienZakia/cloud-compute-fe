@@ -20,7 +20,6 @@ type DriverContextType = {
   arriveAtRestaurant: (orderId: string) => void;
   acceptOffer: (offerId: string) => boolean;
   dismissOffer: (offerId: string) => void;
-  expireOffer: (offerId: string) => void;
 };
 
 const DriverContext = createContext<DriverContextType | undefined>(undefined);
