@@ -79,6 +79,42 @@
   text-wrap: balance;
 }
 
+/* ============================================
+   Merchant sidebar color tokens
+   Primary: #E85D04 (orange-red from Figma)
+   Derived: hover darken 10%, surface lighten 95%, border lighten 60%
+   ============================================ */
+@theme {
+  --color-merchant-primary: #e85d04;
+  --color-merchant-primary-hover: #cf5203;
+  --color-merchant-primary-surface: #fef3ec;
+  --color-merchant-primary-border: #f5a87a;
+
+  --color-order-ready: #8b5cf6;
+  --color-order-ready-surface: #f5f3ff;
+  --color-order-ready-border: #ddd6fe;
+
+  --color-badge-favorit: #e85d04;
+  --color-badge-favorit-surface: #fef3ec;
+  --color-badge-bestseller: #10b981;
+  --color-badge-bestseller-surface: #ecfdf5;
+  --color-badge-stock: #d97706;
+  --color-badge-stock-surface: #fef3c7;
+  --color-badge-habis: #ef4444;
+  --color-badge-habis-surface: #fee2e2;
+
+  --color-rating-bar: #f59e0b;
+
+  --color-cat-paket: #fef3ec;
+  --color-cat-paket-text: #c2410c;
+  --color-cat-bebek: #fffbeb;
+  --color-cat-bebek-text: #b45309;
+  --color-cat-lauk: #f3f4f6;
+  --color-cat-lauk-text: #4b5563;
+  --color-cat-minuman: #ecfeff;
+  --color-cat-minuman-text: #0e7490;
+}
+
 /*  ---break---  */
 
 @theme inline {
