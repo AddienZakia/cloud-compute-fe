@@ -124,6 +124,10 @@
   --color-driver-accent: #fd8100;
   --color-driver-surface: #fbf2f0;
   --color-driver-surface-muted: #f5ecea;
+  --color-driver-status-success: #16a34a;
+  --color-driver-status-success-bg: #ecfdf5;
+  --color-driver-status-danger: #dc2626;
+  --color-driver-status-danger-bg: #fef2f2;
 }
 
 /*  ---break---  */

@@ -2,6 +2,7 @@
 
 import { EarningsChart } from '../(component)/EarningsChart';
 import { FinanceHeader } from '../(component)/FinanceHeader';
+import { HistorySection } from '../(component)/HistorySection';
 import { RushIncentiveCard } from '../(component)/RushIncentiveCard';
 import { WalletCard } from '../(component)/WalletCard';
 import { WeeklyTotalCard } from '../(component)/WeeklyTotalCard';
@@ -36,6 +37,8 @@ export function DriverFinanceContainer() {
         </div>
         <div className="hidden lg:block" aria-hidden="true" />
       </div>
+
+      <HistorySection />
     </div>
   );
 }
