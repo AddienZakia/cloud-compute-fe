@@ -113,6 +113,21 @@
   --color-cat-lauk-text: #4b5563;
   --color-cat-minuman: #ecfeff;
   --color-cat-minuman-text: #0e7490;
+
+  /* Driver color tokens (Figma design) */
+  --color-driver-primary: #b50303;
+  --color-driver-primary-dark: #8f0202;
+  --color-driver-primary-hover: #9e0303;
+  --color-driver-bg: #fff8f6;
+  --color-driver-card: #ffffff;
+  --color-driver-border: #f0e5e3;
+  --color-driver-accent: #fd8100;
+  --color-driver-surface: #fbf2f0;
+  --color-driver-surface-muted: #f5ecea;
+  --color-driver-status-success: #16a34a;
+  --color-driver-status-success-bg: #ecfdf5;
+  --color-driver-status-danger: #dc2626;
+  --color-driver-status-danger-bg: #fef2f2;
 }
 
 /*  ---break---  */

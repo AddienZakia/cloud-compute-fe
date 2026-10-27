@@ -7,7 +7,7 @@ type Props = {
 
 export default function SidebarNavList({ activePath }: Props) {
   return (
-    <nav className="flex flex-col gap-0.5 py-3 flex-1 overflow-y-auto">
+    <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto py-3">
       {navItems.map((item) => {
         const isKatalog =
           item.href === '/merchant/katalog' &&

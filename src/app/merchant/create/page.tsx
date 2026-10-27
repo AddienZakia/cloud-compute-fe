@@ -4,7 +4,7 @@ import CreateMenuContainer from './(container)/CreateMenuContainer';
 
 export default function CreateMenuPage() {
   return (
-    <div className="flex flex-col gap-6 w-full max-w-7xl mx-auto pb-12">
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 pb-12">
       <CreateMenuBreadcrumb />
       <CreateMenuHeader />
       <CreateMenuContainer />

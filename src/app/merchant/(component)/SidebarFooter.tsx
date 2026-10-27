@@ -1,7 +1,7 @@
 import Typography from '@/components/Typography';
 import { Switch } from '@/components/ui/switch';
 import { LogOut } from 'lucide-react';
-import { footerInfo, kafkaStatus } from '../_data/sidebar-nav';
+import { footerInfo } from '../_data/sidebar-nav';
 
 type Props = {
   notifOn: boolean;
@@ -15,24 +15,10 @@ export default function SidebarFooter({
   onLogout,
 }: Props) {
   return (
-    <div className="border-t border-neutral-30 px-4 py-3 flex flex-col gap-3">
-      {/* Kafka status */}
-      <div className="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-neutral-100 text-[11px] whitespace-nowrap">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-success-main shrink-0" />
-          <span className="font-medium text-neutral-10">
-            {kafkaStatus.name}:{' '}
-            <span className="text-neutral-40">{kafkaStatus.status}</span>
-          </span>
-        </div>
-        <span className="text-secondary-main text-[10px] font-mono">
-          {kafkaStatus.clusterId}
-        </span>
-      </div>
-
+    <div className="flex flex-col gap-3 border-t border-[#f0e5e3] bg-[#fff8f6] px-4 py-3">
       {/* Notification toggle */}
       <div className="flex items-center justify-between gap-2">
-        <Typography as="span" variant="s" className="text-neutral-80">
+        <Typography as="span" variant="s" className="text-[#754638]">
           {footerInfo.notificationLabel}
         </Typography>
         <Switch
@@ -46,9 +32,9 @@ export default function SidebarFooter({
       <button
         type="button"
         onClick={onLogout}
-        className="flex items-center gap-2 text-danger-main hover:text-danger-hover transition-colors duration-150 cursor-pointer"
+        className="text-danger-main hover:text-danger-hover flex cursor-pointer items-center gap-2 transition-colors duration-150"
       >
-        <LogOut className="w-4 h-4" />
+        <LogOut className="h-4 w-4" />
         <Typography
           as="span"
           variant="m"

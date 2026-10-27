@@ -32,7 +32,7 @@ export default function KatalogSummaryCard({
   variant,
 }: KatalogSummaryCardProps) {
   return (
-    <div className="flex flex-col gap-2 p-4 rounded-xl bg-neutral-10 border border-neutral-30 shadow-xs">
+    <div className="bg-neutral-10 border-neutral-30 flex flex-col gap-2 rounded-xl border p-4 shadow-xs">
       <div className="flex items-center justify-between">
         <Typography
           as="span"
@@ -44,7 +44,7 @@ export default function KatalogSummaryCard({
         </Typography>
         <div
           className={cn(
-            'flex items-center justify-center w-7 h-7 rounded-lg shrink-0',
+            'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg',
             iconVariants[variant],
           )}
         >

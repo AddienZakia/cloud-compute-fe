@@ -14,7 +14,7 @@ export default function SidebarNavItem({ item, isActive }: Props) {
     <Link
       href={item.href}
       className={cn(
-        'flex items-center gap-3 px-4 py-2.5 rounded-lg mx-2 transition-colors duration-150 group',
+        'group mx-2 flex items-center gap-3 rounded-lg px-4 py-2.5 transition-colors duration-150',
         isActive
           ? 'bg-merchant-primary text-white'
           : 'text-neutral-70 hover:bg-merchant-primary-surface hover:text-merchant-primary',
@@ -22,7 +22,7 @@ export default function SidebarNavItem({ item, isActive }: Props) {
     >
       <Icon
         className={cn(
-          'w-4 h-4 shrink-0',
+          'h-4 w-4 shrink-0',
           isActive
             ? 'text-white'
             : 'text-neutral-60 group-hover:text-merchant-primary',
@@ -44,9 +44,9 @@ export default function SidebarNavItem({ item, isActive }: Props) {
       {item.badge && (
         <span
           className={cn(
-            'text-[10px] font-bold px-1.5 py-0.5 rounded-full',
+            'rounded-full px-1.5 py-0.5 text-[10px] font-bold',
             isActive
-              ? 'bg-white text-merchant-primary'
+              ? 'text-merchant-primary bg-white'
               : 'bg-merchant-primary text-white',
           )}
         >

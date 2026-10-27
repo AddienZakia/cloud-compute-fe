@@ -149,7 +149,7 @@ export default function LoginFormSection() {
         </label>
         <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
           <Timer size={12} />
-          Sesi Kafka: 24 Jam
+          Sesi Aktif: 24 Jam
         </div>
       </div>
 

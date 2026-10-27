@@ -3,8 +3,8 @@ import { storeInfo } from '../_data/sidebar-nav';
 
 export default function SidebarStoreInfo() {
   return (
-    <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-30">
-      <div className="flex items-center justify-center w-9 h-9 rounded-full bg-merchant-primary-surface border border-merchant-primary-border shrink-0">
+    <div className="border-neutral-30 flex items-center gap-2 border-b px-4 py-3">
+      <div className="bg-merchant-primary-surface border-merchant-primary-border flex h-9 w-9 shrink-0 items-center justify-center rounded-full border">
         <Typography
           as="span"
           variant="m"
@@ -14,12 +14,12 @@ export default function SidebarStoreInfo() {
           {storeInfo.name.charAt(0)}
         </Typography>
       </div>
-      <div className="flex flex-col min-w-0">
+      <div className="flex min-w-0 flex-col">
         <Typography
           as="p"
           variant="m"
           weight="bold"
-          className="text-neutral-100 truncate"
+          className="truncate text-neutral-100"
         >
           {storeInfo.name}
         </Typography>
@@ -28,10 +28,10 @@ export default function SidebarStoreInfo() {
         </Typography>
       </div>
       <span
-        className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
+        className={`ml-auto shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${
           storeInfo.isOpen
-            ? 'bg-success-surface text-success-main border border-success-border'
-            : 'bg-danger-surface text-danger-main border border-danger-border'
+            ? 'bg-success-surface text-success-main border-success-border border'
+            : 'bg-danger-surface text-danger-main border-danger-border border'
         }`}
       >
         {storeInfo.isOpen ? storeInfo.openLabel : storeInfo.closedLabel}
