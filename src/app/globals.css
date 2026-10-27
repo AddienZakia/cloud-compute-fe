@@ -54,6 +54,7 @@
   --radius-sm: calc(var(--radius) - 4px);
 
   --font-nunitoSans: var(--font-nunitoSans);
+  --font-plusJakarta: var(--font-plusJakarta);
 }
 
 /*
