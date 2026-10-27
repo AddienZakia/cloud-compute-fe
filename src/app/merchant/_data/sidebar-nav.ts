@@ -37,7 +37,7 @@ export const navItems: NavItem[] = [
   {
     id: 'antrean-pesanan',
     label: 'Antrean Pesanan',
-    href: '/merchant/antrian',
+    href: '/merchant/queue',
     icon: ClipboardList,
     badge: '4 Baru',
   },
