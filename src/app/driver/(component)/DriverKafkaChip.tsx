@@ -10,8 +10,8 @@ export function DriverKafkaChip({
   latency = '24ms WIB',
 }: DriverKafkaChipProps) {
   return (
-    <div className="hidden items-center gap-2 rounded-full border border-neutral-30 bg-neutral-20 px-3 py-1 text-xs text-neutral-80 md:flex">
-      <Activity className="h-3.5 w-3.5 text-success-main" />
+    <div className="hidden items-center gap-2 rounded-full border border-driver-border bg-driver-surface-muted px-3 py-1 text-xs text-neutral-80 md:flex">
+      <Activity className="h-3.5 w-3.5 text-driver-status-success" />
       <span className="font-mono text-[11px] font-medium tracking-wide">
         KAFKA: {consumer} • {latency}
       </span>

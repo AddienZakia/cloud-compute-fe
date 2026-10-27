@@ -11,7 +11,7 @@ interface OfferCardProps {
 
 export function OfferCard({ offer, remainingSeconds }: OfferCardProps) {
   return (
-    <div className="flex flex-col justify-between rounded-xl border border-neutral-30 bg-neutral-10 p-4 shadow-xs">
+    <div className="flex flex-col justify-between rounded-xl border border-driver-border bg-driver-card p-4 shadow-xs">
       <div>
         <div className="flex items-center justify-between gap-2">
           <span className="font-mono text-xs font-bold text-neutral-80">
@@ -23,7 +23,7 @@ export function OfferCard({ offer, remainingSeconds }: OfferCardProps) {
         <div className="mt-3 flex items-start justify-between gap-2">
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <Store className="h-4 w-4 shrink-0 text-merchant-primary" />
+              <Store className="h-4 w-4 shrink-0 text-driver-primary" />
               <h4 className="truncate text-sm font-bold text-neutral-100">
                 {offer.restaurantName}
               </h4>
@@ -38,7 +38,7 @@ export function OfferCard({ offer, remainingSeconds }: OfferCardProps) {
           </p>
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center gap-3 border-t border-neutral-30 pt-3 text-xs text-neutral-70">
+        <div className="mt-3 flex flex-wrap items-center gap-3 border-t border-driver-border pt-3 text-xs text-neutral-70">
           <div className="flex items-center gap-1">
             <Navigation className="h-3.5 w-3.5 text-neutral-60" />
             <span>{offer.tripDistance}</span>

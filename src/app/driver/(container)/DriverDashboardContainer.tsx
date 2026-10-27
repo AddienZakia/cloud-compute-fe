@@ -25,22 +25,26 @@ export function DriverDashboardContainer() {
 
       <DriverStatsGrid stats={data.stats} />
 
-      {deliveries.length > 0 ? (
-        <div className="space-y-5">
-          {deliveries.map((delivery) => (
-            <ActiveDeliveryCard key={delivery.id} delivery={delivery} />
-          ))}
-        </div>
-      ) : (
-        <div className="rounded-xl border border-neutral-30 bg-neutral-10 p-8 text-center">
-          <PackageSearch className="mx-auto h-8 w-8 text-neutral-50" />
-          <p className="mt-2 text-xs font-medium text-neutral-70">
-            Belum ada pengantaran aktif. Terima tawaran untuk memulai.
-          </p>
-        </div>
-      )}
+      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-12">
+        <section className="min-w-0 space-y-5 xl:col-span-8">
+          {deliveries.length > 0 ? (
+            deliveries.map((delivery) => (
+              <ActiveDeliveryCard key={delivery.id} delivery={delivery} />
+            ))
+          ) : (
+            <div className="rounded-xl border border-driver-border bg-driver-card p-8 text-center">
+              <PackageSearch className="mx-auto h-8 w-8 text-neutral-50" />
+              <p className="mt-2 text-xs font-medium text-neutral-70">
+                Belum ada pengantaran aktif. Terima tawaran untuk memulai.
+              </p>
+            </div>
+          )}
+        </section>
 
-      <OfferSection />
+        <aside className="min-w-0 xl:col-span-4">
+          <OfferSection />
+        </aside>
+      </div>
     </div>
   );
 }

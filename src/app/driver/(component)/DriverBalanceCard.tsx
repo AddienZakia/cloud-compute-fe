@@ -19,14 +19,14 @@ export function DriverBalanceCard({ balance }: DriverBalanceCardProps) {
   };
 
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-neutral-30 bg-neutral-10 p-5 shadow-xs">
+    <div className="flex flex-col justify-between rounded-2xl border border-driver-border bg-driver-card p-5 shadow-xs">
       <div>
         <div className="flex items-center justify-between">
           <p className="text-xs font-semibold tracking-wider text-neutral-70 uppercase">
             Saldo BungkusPay Mitra
           </p>
           {balance.autoDisburseActive && (
-            <Badge className="border-success-border bg-neutral-20 text-[11px] font-medium text-success-main">
+            <Badge className="border-success-border bg-driver-status-success-bg text-[11px] font-medium text-driver-status-success">
               <Zap className="h-3 w-3" />
               Auto-Disburse Aktif
             </Badge>
@@ -37,7 +37,7 @@ export function DriverBalanceCard({ balance }: DriverBalanceCardProps) {
           {formatRupiah(balance.amount)}
         </p>
 
-        <p className="mt-1 text-xs font-medium text-success-main">
+        <p className="mt-1 text-xs font-medium text-driver-status-success">
           +{formatRupiah(balance.incentiveAmount)} dari insentif jam sibuk
         </p>
       </div>
@@ -47,7 +47,7 @@ export function DriverBalanceCard({ balance }: DriverBalanceCardProps) {
           type="button"
           variant="primary"
           size="md"
-          className="w-full bg-merchant-primary hover:bg-merchant-primary-hover"
+          className="w-full bg-driver-primary hover:bg-driver-primary-hover"
           onClick={handleWithdraw}
         >
           <ArrowUpRight className="mr-1 h-4 w-4" />

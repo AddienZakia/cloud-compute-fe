@@ -10,7 +10,7 @@ export function DriverArmadaCard({
   return (
     <div className="mx-3 my-2 rounded-xl border border-driver-border bg-driver-surface-muted p-3 shadow-2xs">
       <div className="flex items-center gap-2.5">
-        <span className="inline-block h-2.5 w-2.5 rounded-full bg-driver-accent shrink-0" />
+        <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-driver-status-success" />
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold tracking-wider text-neutral-70 uppercase">
             Status Armada

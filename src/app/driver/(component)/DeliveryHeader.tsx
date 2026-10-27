@@ -10,7 +10,7 @@ export function DeliveryHeader({ delivery }: DeliveryHeaderProps) {
   const isArrived = delivery.status === 'TIBA_DI_RESTO';
 
   return (
-    <div className="border-b border-neutral-30 p-5">
+    <div className="border-b border-driver-border p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-danger-main animate-pulse" />
@@ -19,13 +19,13 @@ export function DeliveryHeader({ delivery }: DeliveryHeaderProps) {
           </h2>
         </div>
 
-        <div className="flex items-center gap-1.5 rounded-full border border-neutral-30 bg-neutral-20 px-3 py-1 font-mono text-[11px] font-semibold text-neutral-80">
+        <div className="flex items-center gap-1.5 rounded-full border border-driver-border bg-driver-surface-muted px-3 py-1 font-mono text-[11px] font-semibold text-neutral-80">
           <Radio className="h-3 w-3 text-danger-main" />
           <span>{delivery.trackingSyncId}</span>
         </div>
       </div>
 
-      <div className="mt-4 flex flex-col gap-3 rounded-xl bg-neutral-20 p-3.5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-4 flex flex-col gap-3 rounded-xl bg-driver-surface-muted p-3.5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-bold text-neutral-90">
             ORDER ID {delivery.orderNumber}
@@ -39,8 +39,8 @@ export function DeliveryHeader({ delivery }: DeliveryHeaderProps) {
           <Badge
             className={
               isArrived
-                ? 'border-success-border bg-neutral-10 text-xs font-bold text-success-main'
-                : 'border-merchant-primary-border bg-merchant-primary-surface text-xs font-bold text-merchant-primary'
+                ? 'border-success-border bg-driver-status-success-bg text-xs font-bold text-driver-status-success'
+                : 'border-driver-border bg-driver-surface text-xs font-bold text-driver-primary'
             }
           >
             {isArrived ? 'SUDAH DI RESTO' : 'SEDANG MENJEMPUT KE RESTO'}

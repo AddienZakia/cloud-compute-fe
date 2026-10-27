@@ -10,7 +10,7 @@ interface ActiveDeliveryCardProps {
 
 export function ActiveDeliveryCard({ delivery }: ActiveDeliveryCardProps) {
   return (
-    <div className="rounded-2xl border border-neutral-30 bg-neutral-10 shadow-xs">
+    <div className="rounded-2xl border border-driver-border bg-driver-card shadow-xs">
       <DeliveryHeader delivery={delivery} />
 
       <div className="space-y-5 p-5">

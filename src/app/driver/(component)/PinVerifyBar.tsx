@@ -24,9 +24,9 @@ export function PinVerifyBar({ orderId, status }: PinVerifyBarProps) {
   };
 
   return (
-    <div className="flex flex-col gap-3 rounded-xl border border-neutral-30 bg-neutral-20 p-4 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-3 rounded-xl border border-driver-border bg-driver-surface-muted p-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-start gap-2.5">
-        <KeyRound className="mt-0.5 h-4 w-4 shrink-0 text-merchant-primary" />
+        <KeyRound className="mt-0.5 h-4 w-4 shrink-0 text-driver-primary" />
         <p className="text-xs leading-relaxed text-neutral-80">
           Minta 4 Digit PIN Verifikasi dari pihak kasir resto setelah cek
           bungkus.
@@ -40,7 +40,7 @@ export function PinVerifyBar({ orderId, status }: PinVerifyBarProps) {
         disabled={isArrived}
         aria-disabled={isArrived}
         onClick={handleArrive}
-        className="w-full shrink-0 bg-merchant-primary font-semibold text-neutral-10 hover:bg-merchant-primary-hover disabled:bg-neutral-40 disabled:text-neutral-60 sm:w-auto"
+        className="w-full shrink-0 bg-driver-primary font-semibold text-neutral-10 hover:bg-driver-primary-hover disabled:bg-neutral-40 disabled:text-neutral-60 sm:w-auto"
       >
         {isArrived
           ? 'Sudah Tiba di Resto (Menunggu PIN)'

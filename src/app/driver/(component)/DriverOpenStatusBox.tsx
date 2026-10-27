@@ -9,13 +9,13 @@ export function DriverOpenStatusBox() {
   const { isOpen, toggleOpen } = useDriverContext();
 
   return (
-    <div className="mt-4 rounded-xl border border-neutral-30 bg-neutral-20 p-4">
+    <div className="mt-4 rounded-xl border border-driver-border bg-driver-surface-muted p-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2.5">
           <span
             className={cn(
               'h-3 w-3 rounded-full',
-              isOpen ? 'bg-success-main' : 'bg-neutral-60',
+              isOpen ? 'bg-driver-status-success' : 'bg-neutral-60',
             )}
           />
           <span className="text-sm font-bold tracking-tight text-neutral-100">
@@ -28,7 +28,7 @@ export function DriverOpenStatusBox() {
           variant="outlined"
           size="sm"
           onClick={toggleOpen}
-          className="border-neutral-40 bg-neutral-10 text-xs font-semibold text-neutral-90 hover:bg-neutral-30"
+          className="border-driver-border bg-driver-card text-xs font-semibold text-neutral-90 hover:bg-driver-surface"
         >
           {isOpen ? 'Nonaktifkan' : 'Aktifkan'}
         </Button>
@@ -40,7 +40,7 @@ export function DriverOpenStatusBox() {
       </p>
 
       <div className="mt-3 flex items-center gap-1.5 font-mono text-[11px] text-neutral-70">
-        <Activity className="h-3 w-3 text-success-main" />
+        <Activity className="h-3 w-3 text-driver-status-success" />
         <span>Broker Lag: 0ms</span>
       </div>
     </div>

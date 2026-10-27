@@ -35,7 +35,7 @@ export function OfferActions({ offerId, orderNumber }: OfferActionsProps) {
   return (
     <div className="mt-4 flex flex-col gap-2">
       {!canAccept && (
-        <p className="text-[11px] font-medium text-warning-main">
+        <p className="text-[11px] font-medium text-driver-primary">
           Aktifkan status ONLINE & OPEN untuk menerima order.
         </p>
       )}
@@ -47,7 +47,7 @@ export function OfferActions({ offerId, orderNumber }: OfferActionsProps) {
           size="sm"
           onClick={handleDismiss}
           aria-label={`Abaikan order ${orderNumber}`}
-          className="flex-1 border-neutral-40 bg-neutral-10 text-xs font-semibold text-neutral-80 hover:bg-neutral-30 hover:text-neutral-100"
+          className="flex-1 border-driver-border bg-driver-card text-xs font-semibold text-neutral-80 hover:bg-driver-surface hover:text-neutral-100"
         >
           Abaikan
         </Button>
@@ -60,7 +60,7 @@ export function OfferActions({ offerId, orderNumber }: OfferActionsProps) {
           aria-disabled={!canAccept}
           onClick={handleAccept}
           aria-label={`Terima order ${orderNumber}`}
-          className="flex-1 bg-merchant-primary text-xs font-semibold text-neutral-10 hover:bg-merchant-primary-hover disabled:cursor-not-allowed disabled:bg-neutral-40 disabled:text-neutral-60"
+          className="flex-1 bg-driver-primary text-xs font-semibold text-neutral-10 hover:bg-driver-primary-hover disabled:cursor-not-allowed disabled:bg-neutral-40 disabled:text-neutral-60"
         >
           Terima
         </Button>

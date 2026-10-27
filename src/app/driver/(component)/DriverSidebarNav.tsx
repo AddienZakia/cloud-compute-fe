@@ -41,7 +41,7 @@ export function DriverSidebarNav() {
             </div>
 
             {item.badge && (
-              <Badge className="h-5 min-w-5 rounded-full border-none bg-driver-accent px-1.5 text-[11px] font-bold text-neutral-10">
+              <Badge className="h-5 min-w-5 rounded-full border-none bg-driver-primary px-1.5 text-[11px] font-bold text-neutral-10">
                 {item.badge}
               </Badge>
             )}

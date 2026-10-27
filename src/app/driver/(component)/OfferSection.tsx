@@ -16,13 +16,13 @@ export function OfferSection() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-warning-main animate-pulse" />
+          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-driver-primary" />
           <h2 className="text-base font-bold text-neutral-100">
             Tawaran Baru Masuk
           </h2>
         </div>
 
-        <Badge className="border-warning-border bg-warning-surface text-xs font-bold text-warning-main">
+        <Badge className="border-driver-border bg-driver-surface text-xs font-bold text-driver-primary">
           {offers.length} Order Dekat
         </Badge>
       </div>
@@ -30,7 +30,7 @@ export function OfferSection() {
       <SurgeNotice surge={data.surgeNotice} />
 
       {offers.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4">
           {offers.map((offer) => (
             <OfferCard
               key={offer.id}
@@ -42,7 +42,7 @@ export function OfferSection() {
           ))}
         </div>
       ) : (
-        <div className="rounded-xl border border-neutral-30 bg-neutral-10 p-8 text-center">
+        <div className="rounded-xl border border-driver-border bg-driver-card p-8 text-center">
           <PackageSearch className="mx-auto h-8 w-8 text-neutral-50" />
           <p className="mt-2 text-xs font-medium text-neutral-70">
             Belum ada tawaran baru. Tetap online untuk menerima order di sekitar

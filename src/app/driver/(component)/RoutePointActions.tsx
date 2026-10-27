@@ -22,7 +22,7 @@ export function RoutePointActions({ point }: RoutePointActionsProps) {
   const SecondaryIcon = point.pointNumber === 1 ? Phone : MessageSquare;
 
   return (
-    <div className="mt-4 border-t border-neutral-30 pt-3">
+    <div className="mt-4 border-t border-driver-border pt-3">
       {isPrimaryDisabled && point.disabledReason && (
         <p className="mb-2 text-[11px] italic text-neutral-60">
           * {point.disabledReason}
@@ -38,7 +38,7 @@ export function RoutePointActions({ point }: RoutePointActionsProps) {
           onClick={() =>
             toast.info(`Menghubungi: ${point.secondaryActionLabel}...`)
           }
-          className="flex-1 border-neutral-40 bg-neutral-10 text-xs font-semibold text-neutral-90 hover:bg-neutral-30 disabled:cursor-not-allowed disabled:bg-neutral-30 disabled:text-neutral-50"
+          className="flex-1 border-driver-border bg-driver-card text-xs font-semibold text-neutral-90 hover:bg-driver-surface disabled:cursor-not-allowed disabled:bg-driver-surface-muted disabled:text-neutral-50"
         >
           <SecondaryIcon className="mr-1.5 h-3.5 w-3.5 text-neutral-70" />
           {point.secondaryActionLabel}
@@ -53,7 +53,7 @@ export function RoutePointActions({ point }: RoutePointActionsProps) {
           onClick={() =>
             toast.info(`Membuka aksi: ${point.primaryActionLabel}...`)
           }
-          className="flex-1 border-neutral-40 bg-neutral-10 text-xs font-semibold text-neutral-90 hover:bg-neutral-30 disabled:cursor-not-allowed disabled:bg-neutral-30 disabled:text-neutral-50"
+          className="flex-1 border-driver-border bg-driver-card text-xs font-semibold text-neutral-90 hover:bg-driver-surface disabled:cursor-not-allowed disabled:bg-driver-surface-muted disabled:text-neutral-50"
         >
           <PrimaryIcon className="mr-1.5 h-3.5 w-3.5 text-neutral-70" />
           {point.primaryActionLabel}

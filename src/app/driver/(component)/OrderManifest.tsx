@@ -18,8 +18,8 @@ export function OrderManifest({
   const totalQty = items.reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <div className="rounded-xl border border-neutral-30 bg-neutral-10 p-4 shadow-xs">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-30 pb-3">
+    <div className="rounded-xl border border-driver-border bg-driver-card p-4 shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-driver-border pb-3">
         <div className="flex items-center gap-2">
           <PackageCheck className="h-4 w-4 text-neutral-80" />
           <h3 className="text-xs font-bold tracking-wider text-neutral-90 uppercase">
@@ -27,7 +27,7 @@ export function OrderManifest({
           </h3>
         </div>
 
-        <Badge className="border-success-border bg-neutral-20 text-[10px] font-semibold text-success-main">
+        <Badge className="border-success-border bg-driver-status-success-bg text-[10px] font-semibold text-driver-status-success">
           <CheckCircle2 className="h-3 w-3" />
           {sealStatus}
         </Badge>
@@ -39,7 +39,7 @@ export function OrderManifest({
         ))}
       </div>
 
-      <div className="mt-4 flex items-center justify-between rounded-lg bg-neutral-20 px-3.5 py-2.5">
+      <div className="mt-4 flex items-center justify-between rounded-lg bg-driver-surface-muted px-3.5 py-2.5">
         <span className="text-xs font-semibold text-neutral-70">
           Ongkos Kirim Mitra
         </span>

@@ -14,15 +14,13 @@ export function DriverLayoutShell({ children }: DriverLayoutShellProps) {
   const isRiwayat = pathname === '/driver/riwayat';
 
   return (
-    <div
-      className={`flex h-screen overflow-hidden ${
-        isRiwayat ? 'bg-driver-bg' : 'bg-neutral-20'
-      }`}
-    >
+    <div className="font-nunitoSans flex h-screen overflow-hidden bg-driver-bg">
       <DriverSidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         {!isRiwayat && <DriverTopbar />}
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        <main className="flex-1 overflow-y-auto bg-driver-bg p-6">
+          {children}
+        </main>
       </div>
     </div>
   );

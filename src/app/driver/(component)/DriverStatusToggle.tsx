@@ -7,7 +7,7 @@ export function DriverStatusToggle() {
   const { isOnline, toggleOnline } = useDriverContext();
 
   return (
-    <div className="flex items-center rounded-lg border border-neutral-30 bg-neutral-20 p-1">
+    <div className="flex items-center rounded-lg border border-driver-border bg-driver-surface-muted p-1">
       <button
         type="button"
         aria-pressed={isOnline}
@@ -15,7 +15,7 @@ export function DriverStatusToggle() {
         className={cn(
           'flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all',
           isOnline
-            ? 'bg-success-main text-neutral-10 shadow-xs'
+            ? 'bg-driver-status-success text-neutral-10 shadow-xs'
             : 'text-neutral-70 hover:text-neutral-100',
         )}
       >

@@ -8,8 +8,8 @@ interface SurgeNoticeProps {
 
 export function SurgeNotice({ surge }: SurgeNoticeProps) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-warning-border bg-warning-surface p-4">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-neutral-10 text-warning-main shadow-xs">
+    <div className="flex items-center gap-3 rounded-xl border border-driver-border bg-driver-surface p-4">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-driver-card text-driver-primary shadow-xs">
         <Flame className="h-5 w-5" />
       </div>
 

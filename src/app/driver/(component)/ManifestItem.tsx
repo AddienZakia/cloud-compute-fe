@@ -6,8 +6,8 @@ interface ManifestItemProps {
 
 export function ManifestItem({ item }: ManifestItemProps) {
   return (
-    <div className="flex items-start gap-3 rounded-lg border border-neutral-30 bg-neutral-20 p-3">
-      <span className="flex h-6 min-w-6 items-center justify-center rounded-md bg-merchant-primary-surface px-1.5 text-xs font-bold text-merchant-primary">
+    <div className="flex items-start gap-3 rounded-lg border border-driver-border bg-driver-surface-muted p-3">
+      <span className="flex h-6 min-w-6 items-center justify-center rounded-md bg-driver-surface px-1.5 text-xs font-bold text-driver-primary">
         {item.qty}x
       </span>
 

@@ -7,7 +7,7 @@ interface DriverStatCardProps {
 
 export function DriverStatCard({ item }: DriverStatCardProps) {
   return (
-    <div className="rounded-xl border border-neutral-30 bg-neutral-10 p-4 shadow-xs">
+    <div className="rounded-xl border border-driver-border bg-driver-card p-4 shadow-xs">
       <p className="text-[11px] font-semibold tracking-wider text-neutral-70 uppercase">
         {item.label}
       </p>
@@ -20,7 +20,7 @@ export function DriverStatCard({ item }: DriverStatCardProps) {
         className={cn(
           'mt-1 text-xs',
           item.subtextColor === 'green'
-            ? 'font-medium text-success-main'
+            ? 'font-medium text-driver-status-success'
             : 'text-neutral-70',
         )}
       >

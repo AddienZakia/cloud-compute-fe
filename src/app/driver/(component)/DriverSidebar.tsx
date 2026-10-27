@@ -12,15 +12,9 @@ export function DriverSidebar() {
   const isRiwayat = pathname === '/driver/riwayat';
 
   return (
-    <aside
-      className={`flex h-screen w-64 flex-col border-r transition-colors ${
-        isRiwayat
-          ? 'border-driver-border bg-driver-surface'
-          : 'border-neutral-30 bg-neutral-10'
-      }`}
-    >
+    <aside className="flex h-screen w-64 flex-col border-r border-driver-border bg-driver-surface transition-colors">
       {!isRiwayat && (
-        <div className="flex h-16 items-center justify-between border-b border-neutral-30 px-5">
+        <div className="flex h-16 items-center justify-between border-b border-driver-border bg-driver-card px-5">
           <Link href="/driver" className="flex items-center gap-2">
             <span className="text-xl font-bold tracking-tight text-neutral-100">
               Bungkus<span className="text-driver-primary">In</span>

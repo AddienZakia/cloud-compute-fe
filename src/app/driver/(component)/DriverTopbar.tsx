@@ -10,7 +10,7 @@ export function DriverTopbar() {
   const { profile, status } = data;
 
   return (
-    <header className="flex h-16 items-center justify-between border-b border-neutral-30 bg-neutral-10 px-6">
+    <header className="flex h-16 items-center justify-between border-b border-driver-border bg-driver-card px-6">
       <div className="flex items-center gap-4">
         <DriverKafkaChip
           consumer={status.kafkaConsumer}
@@ -21,8 +21,8 @@ export function DriverTopbar() {
       <div className="flex items-center gap-4">
         <DriverStatusToggle />
 
-        <div className="flex items-center gap-3 border-l border-neutral-30 pl-4">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-surface text-secondary-pressed ring-2 ring-neutral-30">
+        <div className="flex items-center gap-3 border-l border-driver-border pl-4">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-driver-surface text-driver-primary ring-2 ring-driver-border">
             <User className="h-5 w-5" />
           </div>
           <div className="hidden text-left sm:block">

@@ -26,7 +26,7 @@ export function DriverHotlineCard() {
         type="button"
         variant="outlined"
         size="sm"
-        className="mt-2.5 w-full rounded-lg border-driver-border bg-white text-xs font-bold text-driver-primary shadow-2xs hover:bg-neutral-10"
+        className="mt-2.5 w-full rounded-lg border-driver-border bg-driver-card text-xs font-bold text-driver-primary shadow-2xs hover:bg-driver-surface"
         onClick={handleCallDispatcher}
       >
         Hubungi Dispatcher
