@@ -17,9 +17,8 @@ export default function BrandHeader() {
         </div>
       </div>
       <p className="text-[12px] leading-relaxed text-slate-500">
-        Platform Pesan Antar Kuliner Cepat Terintegrasi Event-Driven
-        Architecture Apache Kafka. Menghubungkan ekosistem konsumen, resto, dan
-        kurir berkecepatan tinggi.
+        Platform Pesan Antar Kuliner Cepat. Menghubungkan ekosistem konsumen,
+        resto, dan kurir berkecepatan tinggi.
       </p>
     </div>
   );

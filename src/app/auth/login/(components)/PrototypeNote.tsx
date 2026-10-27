@@ -9,8 +9,7 @@ export default function PrototypeNote() {
           Catatan Prototipe Terdistribusi
         </p>
         <p className="mt-0.5 text-[11px] leading-relaxed text-slate-500">
-          Autentikasi disimulasikan untuk pengujian alur UI/UX terdistribusi.
-          Event diteruskan ke Kafka Topic.
+          Autentikasi disimulasikan untuk pengujian alur antarmuka pengguna.
         </p>
       </div>
     </div>

@@ -4,7 +4,7 @@ export default function PageFooterSection() {
   return (
     <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
       <p className="text-[11px] text-slate-400">
-        © 2025 Bungkusin Food Delivery. Proyek Prototipe Event-Streaming Kafka.
+        © 2025 Bungkusin Food Delivery.
       </p>
       <div className="flex items-center gap-2 text-[11px] text-slate-400">
         <ShieldCheck size={12} className="text-slate-400" />
