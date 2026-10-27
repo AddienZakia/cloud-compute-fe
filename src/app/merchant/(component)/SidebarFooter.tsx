@@ -32,12 +32,12 @@ export default function SidebarFooter({
       <button
         type="button"
         onClick={onLogout}
-        className="flex items-center gap-2 text-danger-main hover:text-danger-hover transition-colors duration-150 cursor-pointer"
+        className="text-danger-main hover:text-danger-hover flex cursor-pointer items-center gap-2 transition-colors duration-150"
       >
-        <LogOut className="w-4 h-4" />
+        <LogOut className="h-4 w-4" />
         <Typography
           as="span"
-          variant="s"
+          variant="m"
           weight="bold"
           className="text-danger-main"
         >

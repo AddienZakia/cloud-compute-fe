@@ -10,7 +10,7 @@ export default function AddGroupBar({ onAdd }: Props) {
     <button
       type="button"
       onClick={onAdd}
-      className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-[#f0e5e3] bg-[#fbf2f0] px-4 py-3.5 text-danger-main transition-colors hover:bg-[#f5ecea]"
+      className="border-neutral-30 bg-neutral-15/50 hover:bg-neutral-20/60 text-danger-main flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed px-4 py-3.5 transition-colors"
     >
       <ListPlus className="size-4 stroke-[2.5]" />
       <Typography

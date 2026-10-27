@@ -37,7 +37,7 @@ export const navItems: NavItem[] = [
   {
     id: 'antrean-pesanan',
     label: 'Antrean Pesanan',
-    href: '/merchant/queue',
+    href: '/merchant/antrian',
     icon: ClipboardList,
     badge: '4 Baru',
   },
@@ -56,7 +56,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const storeInfo = {
-  name: 'Ayam Berkah Pak Mul',
+  name: 'Ayam Berkah Pak Mu…',
   branch: 'Cabang Tebet Barat',
   isOpen: true,
   openLabel: 'BUKA',

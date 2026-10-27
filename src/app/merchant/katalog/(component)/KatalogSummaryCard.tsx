@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import * as React from 'react';
 
 const iconVariants = {
-  neutral: 'bg-warning-surface text-warning-main border border-warning-border',
+  neutral: 'bg-neutral-30 text-neutral-80',
   success: 'bg-success-surface text-success-main border border-success-border',
   danger: 'bg-danger-surface text-danger-main border border-danger-border',
 } as const;
@@ -32,7 +32,7 @@ export default function KatalogSummaryCard({
   variant,
 }: KatalogSummaryCardProps) {
   return (
-    <div className="flex flex-col gap-2 p-4 rounded-xl bg-neutral-10 border border-neutral-30 shadow-xs">
+    <div className="bg-neutral-10 border-neutral-30 flex flex-col gap-2 rounded-xl border p-4 shadow-xs">
       <div className="flex items-center justify-between">
         <Typography
           as="span"
@@ -44,7 +44,7 @@ export default function KatalogSummaryCard({
         </Typography>
         <div
           className={cn(
-            'flex items-center justify-center w-7 h-7 rounded-lg shrink-0',
+            'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg',
             iconVariants[variant],
           )}
         >
@@ -57,11 +57,9 @@ export default function KatalogSummaryCard({
           as="span"
           variant="hl"
           weight="bold"
-          className={cn(
-            variant === 'success' && 'text-success-main',
-            variant === 'danger' && 'text-danger-main',
-            variant === 'neutral' && 'text-neutral-100',
-          )}
+          className={
+            variant === 'danger' ? 'text-danger-main' : 'text-neutral-100'
+          }
         >
           {value}
         </Typography>

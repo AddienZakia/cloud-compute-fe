@@ -27,7 +27,7 @@ export default function VariantGroupCard({
       : `Tambah Opsi ${group?.nama ? group.nama.split(' ')[0] : 'Varian'}`;
 
   return (
-    <div className="flex flex-col gap-3.5 rounded-2xl border border-[#f0e5e3] bg-[#fbf2f0] p-4">
+    <div className="border-neutral-30 bg-neutral-15/40 flex flex-col gap-3.5 rounded-2xl border p-4">
       <VariantGroupHeader
         groupIndex={groupIndex}
         autoFocus={autoFocus}

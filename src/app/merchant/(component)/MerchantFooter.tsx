@@ -2,8 +2,8 @@ import Typography from '@/components/Typography';
 
 export default function MerchantFooter() {
   return (
-    <footer className="mt-auto w-full border-t border-[#f0e5e3] bg-[#fff8f6] px-6 py-3.5 font-nunitoSans">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+    <footer className="border-neutral-30 bg-neutral-10/40 mt-auto w-full border-t px-6 py-3.5">
+      <div className="flex flex-col items-center justify-between gap-3 text-xs sm:flex-row">
         {/* Sisi Kiri: Hak Cipta & Ekosistem */}
         <Typography
           as="span"
@@ -15,9 +15,9 @@ export default function MerchantFooter() {
         </Typography>
 
         {/* Sisi Kanan: Status Klaster & Partisi Kafka */}
-        <div className="flex items-center gap-2 text-neutral-70 font-mono text-[11px] shrink-0">
+        <div className="text-neutral-70 flex shrink-0 items-center gap-2 font-mono text-[11px]">
           <span className="flex items-center gap-1.5 font-medium">
-            <span className="size-2 rounded-full bg-success-main shrink-0" />
+            <span className="bg-success-main size-2 shrink-0 rounded-full" />
             Broker cluster-jkt-1
           </span>
           <span className="text-neutral-40">•</span>

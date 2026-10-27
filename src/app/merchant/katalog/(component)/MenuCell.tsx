@@ -14,7 +14,7 @@ export default function MenuCell({ item }: MenuCellProps) {
   return (
     <div className="flex items-center gap-3 py-1">
       {/* Thumbnail Foto Menu */}
-      <div className="relative size-14 shrink-0 rounded-lg overflow-hidden bg-neutral-30 border border-neutral-30">
+      <div className="bg-neutral-30 border-neutral-30 relative size-14 shrink-0 overflow-hidden rounded-lg border">
         <Image
           src={item.foto}
           alt={item.nama}
@@ -22,20 +22,23 @@ export default function MenuCell({ item }: MenuCellProps) {
           height={56}
           className={cn(
             'size-full object-cover transition-all',
-            isHabis && 'grayscale opacity-60',
+            isHabis && 'opacity-60 grayscale',
           )}
         />
+        <span className="text-neutral-10 absolute inset-x-0 bottom-0 bg-neutral-100/70 py-0.5 text-center text-[8px] leading-none font-bold">
+          Foto HD
+        </span>
       </div>
 
       {/* Info Menu */}
-      <div className="flex flex-col gap-0.5 min-w-[200px] max-w-[320px]">
-        <div className="flex items-center gap-2 flex-wrap">
+      <div className="flex max-w-[320px] min-w-[200px] flex-col gap-0.5">
+        <div className="flex flex-wrap items-center gap-2">
           <Typography
             as="span"
             variant="m"
             weight="bold"
             className={cn(
-              isHabis ? 'line-through text-neutral-60' : 'text-neutral-100',
+              isHabis ? 'text-neutral-60 line-through' : 'text-neutral-100',
             )}
           >
             {item.nama}
@@ -51,8 +54,8 @@ export default function MenuCell({ item }: MenuCellProps) {
           {item.deskripsi}
         </Typography>
 
-        <div className="flex items-center gap-1.5 text-[11px] text-neutral-60 mt-0.5">
-          <span className="font-semibold text-neutral-70">SKU: {item.sku}</span>
+        <div className="text-neutral-60 mt-0.5 flex items-center gap-1.5 text-[11px]">
+          <span className="text-neutral-70 font-semibold">SKU: {item.sku}</span>
           <span>•</span>
           {isHabis ? (
             <span className="text-danger-main font-semibold">
