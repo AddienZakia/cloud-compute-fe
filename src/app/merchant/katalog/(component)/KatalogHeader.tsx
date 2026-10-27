@@ -3,6 +3,7 @@
 import Typography from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import { Plus, Settings } from 'lucide-react';
+import Link from 'next/link';
 import { toast } from 'sonner';
 import { katalogHeader } from '../_data/katalog';
 
@@ -52,14 +53,15 @@ export default function KatalogHeader() {
           >
             {katalogHeader.buttonVariasi}
           </Button>
-          <Button
-            size="sm"
-            leftIcon={Plus}
-            className="bg-merchant-primary hover:bg-merchant-primary-hover"
-            onClick={() => toast.info('Fitur Tambahkan Menu Baru segera hadir')}
-          >
-            {katalogHeader.buttonTambahMenu}
-          </Button>
+          <Link href="/merchant/create">
+            <Button
+              size="sm"
+              leftIcon={Plus}
+              className="bg-merchant-primary hover:bg-merchant-primary-hover"
+            >
+              {katalogHeader.buttonTambahMenu}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

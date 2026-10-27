@@ -28,3 +28,8 @@ export type BreadcrumbItem = {
   href?: string;
   isCurrent?: boolean;
 };
+
+export const staticBreadcrumbs: BreadcrumbItem[] = [
+  { label: 'Merchant', href: '/merchant' },
+  { label: 'Resto Workspace', isCurrent: true },
+];
