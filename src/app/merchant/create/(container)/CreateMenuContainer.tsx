@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import BasicInfoSection from '../(component)/BasicInfoSection';
 import PlaceholderSection from '../(component)/PlaceholderSection';
+import PricingSection from '../(component)/PricingSection';
 import { defaultMenuFormValues } from '../_schema/default-values';
 import {
   CreateMenuFormValues,
@@ -18,7 +19,7 @@ export default function CreateMenuContainer() {
   });
 
   const handleSubmit = (data: CreateMenuFormValues) => {
-    // Handler sementara untuk tahap 1
+    // Handler sementara untuk tahap 2
     void data;
   };
 
@@ -29,10 +30,7 @@ export default function CreateMenuContainer() {
           {/* Kolom Kiri: Form Input Utama */}
           <div className="xl:col-span-8 flex flex-col gap-6">
             <BasicInfoSection />
-            <PlaceholderSection
-              title="2. Penetapan Harga & Manajemen Stok"
-              className="py-10"
-            />
+            <PricingSection />
             <PlaceholderSection
               title="3. Pengaturan Varian & Opsi Konsumen"
               className="py-10"
